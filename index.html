@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ScamCheck — Support & FAQ</title>
+<meta name="description" content="Official support page for ScamCheck: product overview, features, screenshots, contacts, and a rich FAQ.">
+<link rel="icon" type="image/png" href="assets/logo.png">
+<style>
+:root{
+  --bg:#070b13;
+  --text:#e7eef6;
+  --muted:#9aa4b2;
+  --brand:#34d399;
+  --stroke:rgba(255,255,255,.10);
+  --panel:rgba(15,23,42,.66);
+  --radius:20px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --glow:0 0 18px rgba(52,211,153,.45), 0 0 52px rgba(52,211,153,.22);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{color:var(--brand);text-decoration:none}
+
+/* Header */
+header{
+  position:sticky; top:0; z-index:5;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 18px; border-bottom:1px solid var(--stroke);
+  background:linear-gradient(180deg, rgba(7,11,19,.8), rgba(7,11,19,.55) 40%, rgba(7,11,19,0));
+  backdrop-filter:blur(10px) saturate(140%);
+}
+.brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:#60a5fa;box-shadow:0 0 18px rgba(96,165,250,.9)}
+.brand span{font-size:20px;color:var(--brand); text-shadow:0 0 20px rgba(52,211,153,.7)}
+
+/* Buttons */
+.btn{
+  position:relative; overflow:hidden;
+  display:inline-flex; align-items:center; gap:10px;
+  padding:12px 16px; border-radius:14px;
+  border:1px solid var(--stroke); background:rgba(13,23,40,.92);
+  color:var(--text); font-weight:800; cursor:pointer; text-decoration:none !important;
+  transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
+}
+.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
+.btn:after{
+  content:""; position:absolute; inset:auto auto auto 50%; width:0; height:0;
+  background:radial-gradient(circle, rgba(255,255,255,.22), transparent 60%);
+  transform:translateX(-50%); opacity:0;
+}
+.btn:hover:after{animation:ripple .7s ease}
+@keyframes ripple{from{width:0;height:0;opacity:.5}to{width:260px;height:260px;opacity:0}}
+.btn.brand{background:rgba(52,211,153,.12); border-color:rgba(52,211,153,.35); box-shadow:var(--glow)}
+.btn.big{padding:14px 18px}
+
+/* Layout */
+.wrap{max-width:1140px;margin:0 auto;padding:28px 16px 70px}
+.hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch}
+
+/* Fancy card with animated border */
+.card{
+  position:relative;
+  background:var(--panel); border:1px solid var(--stroke); border-radius:var(--radius);
+  padding:22px; box-shadow:var(--shadow);
+}
+.card:before{
+  content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
+  background:conic-gradient(from 0deg, rgba(52,211,153,.0), rgba(52,211,153,.5), rgba(124,58,237,.45), rgba(52,211,153,.0));
+  filter:blur(8px); opacity:.33; z-index:-1; animation:holo 6s linear infinite;
+}
+@keyframes holo{to{transform:rotate(360deg)}}
+
+.h1{font-size:36px; font-weight:900; margin:0 0 6px}
+.lead{color:#cfe1f1; margin:0 0 12px; line-height:1.6}
+
+/* features */
+.features{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px}
+.feat{display:flex; gap:10px; align-items:flex-start}
+.badge{width:22px; height:22px; border-radius:6px; background:rgba(52,211,153,.16); border:1px solid rgba(52,211,153,.4); display:grid; place-items:center; margin-top:2px}
+
+/* gallery with parallax hover */
+.gallery{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.shot{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--stroke); transform:translateZ(0);}
+.shot img{width:100%; display:block; transition:transform .35s ease, filter .35s ease}
+.shot:hover img{transform:scale(1.05); filter:contrast(108%)}
+
+/* two-column about */
+.kb{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+.kb .tag{font-size:12px; color:#a5b4c3; letter-spacing:.2px}
+
+/* Accordion */
+.faq .acc{border:1px solid var(--stroke); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.02)}
+.acc-item + .acc-item{border-top:1px solid var(--stroke)}
+.acc-btn{all:unset; cursor:pointer; display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px 18px; font-weight:800}
+.acc-btn:hover{background:rgba(255,255,255,.02)}
+.acc-panel{max-height:0; overflow:hidden; transition:max-height .3s ease; padding:0 18px}
+.acc-panel.open{padding:8px 18px 16px}
+.muted{color:var(--muted)}
+
+/* Footer */
+footer{margin-top:44px; display:flex; justify-content:space-between; align-items:center; gap:18px; padding-top:16px; border-top:1px solid var(--stroke); color:var(--muted)}
+.links{display:flex; gap:12px; flex-wrap:wrap}
+.links a{border:1px solid var(--stroke); padding:8px 12px; border-radius:12px; display:inline-flex; gap:8px; align-items:center; background:rgba(255,255,255,.02)}
+
+/* Responsive */
+@media (max-width: 1000px){
+  .hero{grid-template-columns:1fr}
+  .features{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr}
+  .kb{grid-template-columns:1fr}
+}
+</style>
+
+<style>
+/* ---- BACKGROUND WITH LOGO ---- */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-4;
+  background:
+    url("assets/logo.png") center/320px no-repeat,
+    radial-gradient(100vw 80vh at 15% -10%, rgba(52,211,153,.22), transparent 70%),
+    radial-gradient(90vw 70vh at 85% 0%, rgba(124,58,237,.20), transparent 70%),
+    radial-gradient(100vw 80vh at 50% 120%, rgba(34,197,94,.18), transparent 70%),
+    linear-gradient(180deg, #05080f 0%, #0a1322 50%, #07121f 100%);
+  filter:saturate(120%);
+  background-blend-mode: screen;
+  opacity:.25;
+  animation:floaty 38s ease-in-out infinite alternate;
+}
+@keyframes floaty{0%{transform:translate3d(0,-10px,0)}100%{transform:translate3d(0,10px,0)}}
+</style>
+
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="dot"></div>
+    <span>ScamCheck</span>
+  </div>
+  <nav class="nav">
+    <a class="btn" href="#about">About</a>
+    <a class="btn" href="#faq">FAQ</a>
+    <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">Open Web App</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="card">
+      <h1 class="h1">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
+      <p class="lead">Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.</p>
+
+      <div class="features">
+        <div class="feat"><div class="badge">✓</div><div><b>Wallet Check</b> — balance, transactions, age, risk score.</div></div>
+        <div class="feat"><div class="badge">✓</div><div><b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.</div></div>
+        <div class="feat"><div class="badge">✓</div><div><b>Contract Check</b> — source code, owner privileges, dangerous functions.</div></div>
+        <div class="feat"><div class="badge">✓</div><div><b>Group Check</b> — Telegram/Discord red flags.</div></div>
+        <div class="feat"><div class="badge">✓</div><div><b>Anti-Scam Knowledge</b> — rules and checklists.</div></div>
+        <div class="feat"><div class="badge">✓</div><div><b>Premium</b> — unlimited checks, priority API, full reports.</div></div>
+      </div>
+
+      <div class="nav" style="margin-top:12px">
+        <a class="btn brand" href="https://t.me/TeamLead99" target="_blank" rel="noopener">Telegram Support</a>
+        <a class="btn" href="mailto:hort6536@gmail.com">support@scamcheck.app</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="gallery">
+        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1"></a>
+        <a class="shot" href="screenshots/shot2.png" target="_blank"><img src="screenshots/shot2.png" alt="Screenshot 2"></a>
+        <a class="shot" href="screenshots/shot3.png" target="_blank"><img src="screenshots/shot3.png" alt="Screenshot 3"></a>
+        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="card kb">
+    <div>
+      <span class="tag">OVERVIEW</span>
+      <h3 style="margin:.2rem 0 .4rem">What is ScamCheck?</h3>
+      <p>ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.</p>
+      <ul>
+        <li>Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.</li>
+        <li>Fast checks via our API; full reports and priority in Premium.</li>
+        <li>Responsive UI for mobile and desktop.</li>
+      </ul>
+    </div>
+    <div>
+      <span class="tag">HIGHLIGHTS</span>
+      <ul>
+        <li><b>One-tap checks</b> with clear risk labels.</li>
+        <li><b>Ownership & permissions</b> insights for contracts.</li>
+        <li><b>DEX pair sanity</b> (liquidity, lock status, price impact).</li>
+        <li><b>Community audit</b>: fake engagement cues & spam markers.</li>
+        <li><b>Knowledge base</b>: practical rules to avoid scams.</li>
+      </ul>
+      <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank">Open Web App</a>
+    </div>
+  </section>
+
+  <section id="faq" class="card faq">
+    <h2 style="margin:0 0 6px">Frequently Asked Questions</h2>
+    <div class="acc" id="accordion"></div>
+  </section>
+
+  <footer>
+    <div>© <span id="year"></span> ScamCheck. All rights reserved.</div>
+    <div class="links">
+      <a href="https://t.me/your_support" target="_blank" rel="noopener">Telegram</a>
+      <a href="mailto:support@scamcheck.app">E-mail</a>
+    </div>
+  </footer>
+</main>
+
+<script>
+const FAQ = [
+  {q:"What exactly does ScamCheck do?", a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
+  {q:"Which chains are supported?", a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
+  {q:"How does Wallet Check work?", a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
+  {q:"What does Honeypot mean?", a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
+  {q:"Free vs Premium?", a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
+  {q:"How do I pay?", a:"Through NOWPayments in crypto (BTC, ETH, USDT, USDC, etc.)."},
+  {q:"Is mobile supported?", a:"Yes. The interface is optimized for phones and tablets."},
+  {q:"Can I trust the results?", a:"We aggregate multiple public sources (e.g., explorers and analytics APIs). We recommend double-checking critical cases on official explorers as a best practice."},
+  {q:"Is ScamCheck for traders only?", a:"No— it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
+  {q:"Do you store my wallet addresses?", a:"Only for processing your checks (if at all). We don’t sell personal data. For sensitive use, clear your local cache and use private mode."},
+  {q:"Can I request a new chain or feature?", a:"Yes. Contact support — we collect requests and prioritize by demand."}
+];
+const acc = document.getElementById("accordion");
+FAQ.forEach(({q,a},i)=>{
+  const el = document.createElement("div");
+  el.className = "acc-item";
+  el.innerHTML = `
+    <button class="acc-btn" aria-expanded="false">
+      <span>${i+1}. ${q}</span>
+      <span class="muted">▼</span>
+    </button>
+    <div class="acc-panel"><div style="padding:10px 0 12px; color:#cfe1f1">${a}</div></div>
+  `;
+  acc.appendChild(el);
+});
+
+acc.addEventListener("click", e=>{
+  const btn = e.target.closest(".acc-btn");
+  if(!btn) return;
+  const panel = btn.nextElementSibling;
+  const open = panel.style.maxHeight && panel.style.maxHeight !== "0px";
+  document.querySelectorAll(".acc-panel").forEach(p=>{p.style.maxHeight=null; p.classList.remove("open")});
+  document.querySelectorAll(".acc-btn[aria-expanded='true']").forEach(b=>b.setAttribute("aria-expanded","false"));
+  if(!open){
+    panel.style.maxHeight = panel.scrollHeight + "px";
+    panel.classList.add("open");
+    btn.setAttribute("aria-expanded","true");
+  }
+});
+
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
+
