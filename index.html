@@ -60,7 +60,7 @@ header{
 .wrap{max-width:1140px;margin:0 auto;padding:28px 16px 70px}
 .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch}
 
-/* Fancy card with animated border */
+/* Card */
 .card{
   position:relative;
   background:var(--panel); border:1px solid var(--stroke); border-radius:var(--radius);
@@ -81,13 +81,13 @@ header{
 .feat{display:flex; gap:10px; align-items:flex-start}
 .badge{width:22px; height:22px; border-radius:6px; background:rgba(52,211,153,.16); border:1px solid rgba(52,211,153,.4); display:grid; place-items:center; margin-top:2px}
 
-/* gallery with parallax hover */
+/* gallery */
 .gallery{display:grid; grid-template-columns:1fr 1fr; gap:14px}
 .shot{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--stroke); transform:translateZ(0);}
 .shot img{width:100%; display:block; transition:transform .35s ease, filter .35s ease}
 .shot:hover img{transform:scale(1.05); filter:contrast(108%)}
 
-/* two-column about */
+/* about */
 .kb{display:grid; grid-template-columns:1fr 1fr; gap:18px}
 .kb .tag{font-size:12px; color:#a5b4c3; letter-spacing:.2px}
 
@@ -146,11 +146,13 @@ body::before{
   <nav class="nav">
     <a class="btn" href="#about">About</a>
     <a class="btn" href="#faq">FAQ</a>
+    <a class="btn" href="#pricing">Pricing</a>
     <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">Open Web App</a>
   </nav>
 </header>
 
 <main class="wrap">
+  <!-- HERO -->
   <section class="hero">
     <div class="card">
       <h1 class="h1">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
@@ -166,7 +168,7 @@ body::before{
       </div>
 
       <div class="nav" style="margin-top:12px">
-        <a class="btn brand" href="https://t.me/TeamLead99" target="_blank" rel="noopener">Telegram Support</a>
+        <a class="btn brand" href="https://t.me/Satoshi228" target="_blank" rel="noopener">Telegram Support</a>
         <a class="btn" href="mailto:hort6536@gmail.com">support@scamcheck.app</a>
       </div>
     </div>
@@ -181,6 +183,7 @@ body::before{
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about" class="card kb">
     <div>
       <span class="tag">OVERVIEW</span>
@@ -205,16 +208,62 @@ body::before{
     </div>
   </section>
 
+  <!-- FAQ -->
   <section id="faq" class="card faq">
     <h2 style="margin:0 0 6px">Frequently Asked Questions</h2>
     <div class="acc" id="accordion"></div>
   </section>
 
+  <!-- PRICING -->
+<section id="pricing" class="card" style="margin-top:18px">
+  <h2 style="margin:0 0 10px">Pricing</h2>
+  <p class="muted" style="margin:0 0 16px">
+    Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.
+  </p>
+
+  <div class="pricing" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <!-- Free -->
+    <div class="tier" style="border:1px solid var(--stroke);border-radius:16px;padding:18px;background:rgba(255,255,255,.02)">
+      <div style="font-weight:800;margin-bottom:6px">Free</div>
+      <div style="font-size:28px;font-weight:900;margin:2px 0 8px">$0</div>
+      <ul class="muted" style="margin:0 0 14px;line-height:1.6">
+        <li><b>Wallet Check only</b> (address risk scan)</li>
+        <li>No Token/Contract/Group checks</li>
+        <li>Rate limited</li>
+      </ul>
+      <!-- Кнопка без ссылки -->
+      <button class="btn" type="button" aria-disabled="true">Try Now</button>
+    </div>
+
+    <!-- Premium -->
+    <div class="tier" style="border:1px solid rgba(52,211,153,.35);border-radius:16px;padding:18px;background:rgba(52,211,153,.08);box-shadow:var(--glow)">
+      <div style="font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+        Premium <span style="font-size:12px;color:#a7f3d0;border:1px solid rgba(52,211,153,.35);padding:2px 6px;border-radius:999px">Best value</span>
+      </div>
+      <div style="font-size:28px;font-weight:900;margin:2px 0 8px">$20<span class="muted" style="font-size:14px">/month</span></div>
+      <ul class="muted" style="margin:0 0 14px;line-height:1.6">
+        <li><b>All checks</b>: Wallet, Token, Contract, Group</li>
+        <li>Unlimited checks</li>
+        <li>Priority API speed</li>
+        <li>Full risk reports</li>
+        <li>Early access to new chains</li>
+      </ul>
+      <!-- Кнопка без ссылки -->
+      <button class="btn brand big" type="button" aria-disabled="true">Upgrade — $20/month</button>
+      <div class="muted" style="font-size:12px;margin-top:8px">
+        Payments via NOWPayments (USDT-TRC20 )
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
   <footer>
     <div>© <span id="year"></span> ScamCheck. All rights reserved.</div>
     <div class="links">
-      <a href="https://t.me/your_support" target="_blank" rel="noopener">Telegram</a>
-      <a href="mailto:support@scamcheck.app">E-mail</a>
+      <a href="https://t.me/Satoshi228" target="_blank" rel="noopener">Telegram</a>
+      <a href="hort6536@gmail.com">E-mail</a>
     </div>
   </footer>
 </main>
@@ -229,10 +278,11 @@ const FAQ = [
   {q:"How do I pay?", a:"Through NOWPayments in crypto (BTC, ETH, USDT, USDC, etc.)."},
   {q:"Is mobile supported?", a:"Yes. The interface is optimized for phones and tablets."},
   {q:"Can I trust the results?", a:"We aggregate multiple public sources (e.g., explorers and analytics APIs). We recommend double-checking critical cases on official explorers as a best practice."},
-  {q:"Is ScamCheck for traders only?", a:"No— it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
+  {q:"Is ScamCheck for traders only?", a:"No — it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
   {q:"Do you store my wallet addresses?", a:"Only for processing your checks (if at all). We don’t sell personal data. For sensitive use, clear your local cache and use private mode."},
   {q:"Can I request a new chain or feature?", a:"Yes. Contact support — we collect requests and prioritize by demand."}
 ];
+
 const acc = document.getElementById("accordion");
 FAQ.forEach(({q,a},i)=>{
   const el = document.createElement("div");
@@ -265,4 +315,3 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
