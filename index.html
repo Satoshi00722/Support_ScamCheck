@@ -131,6 +131,17 @@ footer{margin-top:44px; display:flex; justify-content:space-between; align-items
   .acc-btn{padding:14px 16px}
   .acc-panel.open{padding:8px 16px 14px}
 }
+
+/* Small inline notice */
+.notice{
+  margin:6px 0 10px;
+  font-size:14px;
+  color:#a5b4c3;
+  background:rgba(255,255,255,.03);
+  border:1px dashed var(--stroke);
+  border-radius:12px;
+  padding:10px 12px;
+}
 </style>
 
 <style>
@@ -176,6 +187,9 @@ body::before{
     <div class="card">
       <h1 class="h1">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
       <p class="lead">Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.</p>
+
+      <!-- INSERTED NOTICE -->
+      <div class="notice">⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.</div>
 
       <div class="features">
         <div class="feat"><div class="badge">✓</div><div><b>Wallet Check</b> — balance, transactions, age, risk score.</div></div>
@@ -331,3 +345,4 @@ document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
