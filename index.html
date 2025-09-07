@@ -1,21 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ScamCheck — Support & FAQ</title>
-<meta name="description" content="Official support page for ScamCheck: product overview, features, screenshots, contacts, and a rich FAQ.">
-<link rel="icon" type="image/png" href="assets/logo.png">
+<meta name="description" content="Official support page for ScamCheck: product overview, features, screenshots, contacts, and a rich FAQ." />
+<link rel="icon" type="image/png" href="assets/logo.png" />
+
 <style>
 :root{
-  --bg:#070b13;
-  --text:#e7eef6;
-  --muted:#9aa4b2;
-  --brand:#34d399;
-  --stroke:rgba(255,255,255,.10);
-  --panel:rgba(15,23,42,.66);
-  --radius:20px;
-  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --bg:#070b13; --text:#e7eef6; --muted:#9aa4b2; --brand:#34d399;
+  --stroke:rgba(255,255,255,.10); --panel:rgba(15,23,42,.66);
+  --radius:20px; --shadow:0 10px 30px rgba(0,0,0,.35);
   --glow:0 0 18px rgba(52,211,153,.45), 0 0 52px rgba(52,211,153,.22);
 }
 
@@ -25,156 +21,123 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-famil
 a{color:var(--brand);text-decoration:none}
 
 /* Header */
-header{
-  position:sticky; top:0; z-index:5;
-  display:flex; justify-content:space-between; align-items:center;
-  padding:14px 18px; border-bottom:1px solid var(--stroke);
+header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
+  padding:14px 18px;border-bottom:1px solid var(--stroke);
   background:linear-gradient(180deg, rgba(7,11,19,.8), rgba(7,11,19,.55) 40%, rgba(7,11,19,0));
-  backdrop-filter:blur(10px) saturate(140%);
-}
-.brand{display:flex; align-items:center; gap:10px; font-weight:900; letter-spacing:.2px}
+  backdrop-filter:blur(10px) saturate(140%)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
 .brand .dot{width:10px;height:10px;border-radius:50%;background:#60a5fa;box-shadow:0 0 18px rgba(96,165,250,.9)}
-.brand span{font-size:20px;color:var(--brand); text-shadow:0 0 20px rgba(52,211,153,.7)}
+.brand span{font-size:20px;color:var(--brand);text-shadow:0 0 20px rgba(52,211,153,.7)}
 
 /* Buttons */
-.btn{
-  position:relative; overflow:hidden;
-  display:inline-flex; align-items:center; gap:10px;
-  padding:12px 16px; border-radius:14px;
-  border:1px solid var(--stroke); background:rgba(13,23,40,.92);
-  color:var(--text); font-weight:800; cursor:pointer; text-decoration:none !important;
-  transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease;
-}
-.btn:hover{transform:translateY(-1px); box-shadow:var(--shadow)}
-.btn.brand{background:rgba(52,211,153,.12); border-color:rgba(52,211,153,.35); box-shadow:var(--glow)}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
+  padding:12px 16px;border-radius:14px;border:1px solid var(--stroke);
+  background:rgba(13,23,40,.92);color:var(--text);font-weight:800;cursor:pointer;text-decoration:none;
+  transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease, filter .2s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
+.btn.brand{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.35);box-shadow:var(--glow)}
 .btn.big{padding:14px 18px}
 
 /* Layout */
 .wrap{max-width:1140px;margin:0 auto;padding:28px 16px 70px}
-.hero{display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:stretch}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
 
 /* Card */
-.card{
-  position:relative;
-  background:var(--panel); border:1px solid var(--stroke); border-radius:var(--radius);
-  padding:22px; box-shadow:var(--shadow);
-}
-.card:before{
-  content:""; position:absolute; inset:-2px; border-radius:calc(var(--radius) + 2px);
+.card{position:relative;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card:before{content:"";position:absolute;inset:-2px;border-radius:calc(var(--radius) + 2px);
   background:conic-gradient(from 0deg, rgba(52,211,153,.0), rgba(52,211,153,.5), rgba(124,58,237,.45), rgba(52,211,153,.0));
-  filter:blur(8px); opacity:.33; z-index:-1; animation:holo 6s linear infinite;
-}
+  filter:blur(8px);opacity:.33;z-index:-1;animation:holo 6s linear infinite}
 @keyframes holo{to{transform:rotate(360deg)}}
 
-.h1{font-size:36px; font-weight:900; margin:0 0 6px}
-.lead{color:#cfe1f1; margin:0 0 12px; line-height:1.6}
+.h1{font-size:36px;font-weight:900;margin:0 0 6px}
+.lead{color:#cfe1f1;margin:0 0 12px;line-height:1.6}
 
-/* features */
-.features{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px}
-.feat{display:flex; gap:10px; align-items:flex-start}
-.badge{width:22px; height:22px; border-radius:6px; background:rgba(52,211,153,.16); border:1px solid rgba(52,211,153,.4); display:grid; place-items:center; margin-top:2px}
+/* Features */
+.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.feat{display:flex;gap:10px;align-items:flex-start}
+.badge{width:22px;height:22px;border-radius:6px;background:rgba(52,211,153,.16);border:1px solid rgba(52,211,153,.4);display:grid;place-items:center;margin-top:2px}
 
-/* gallery */
-.gallery{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-.shot{position:relative; border-radius:16px; overflow:hidden; border:1px solid var(--stroke); transform:translateZ(0);}
-.shot img{width:100%; display:block; transition:transform .35s ease, filter .35s ease}
-.shot:hover img{transform:scale(1.05); filter:contrast(108%)}
+/* Gallery */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--stroke);transform:translateZ(0)}
+.shot img{width:100%;display:block;transition:transform .35s ease, filter .35s ease}
+.shot:hover img{transform:scale(1.05);filter:contrast(108%)}
 
-/* about */
-.kb{display:grid; grid-template-columns:1fr 1fr; gap:18px}
-.kb .tag{font-size:12px; color:#a5b4c3; letter-spacing:.2px}
+/* About */
+.kb{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kb .tag{font-size:12px;color:#a5b4c3;letter-spacing:.2px}
 
 /* Accordion */
-.faq .acc{border:1px solid var(--stroke); border-radius:16px; overflow:hidden; background:rgba(255,255,255,.02)}
+.faq .acc{border:1px solid var(--stroke);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02)}
 .acc-item + .acc-item{border-top:1px solid var(--stroke)}
-.acc-btn{all:unset; cursor:pointer; display:flex; justify-content:space-between; align-items:center; width:100%; padding:16px 18px; font-weight:800}
+.acc-btn{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;width:100%;padding:16px 18px;font-weight:800}
 .acc-btn:hover{background:rgba(255,255,255,.02)}
-.acc-panel{max-height:0; overflow:hidden; transition:max-height .3s ease; padding:0 18px}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px}
 .acc-panel.open{padding:8px 18px 16px}
 .muted{color:var(--muted)}
 
+/* Pricing */
+.pricing{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.tier{border:1px solid var(--stroke);border-radius:16px;padding:18px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:space-between}
+.tier--pro{border-color:rgba(52,211,153,.35);background:rgba(52,211,153,.08);box-shadow:var(--glow)}
+.price-wrap{display:flex;align-items:baseline;gap:10px;margin:2px 0 12px;flex-wrap:wrap}
+.old-price{font-size:18px;color:#9aa4b2;text-decoration:line-through}
+.new-price{font-size:34px;font-weight:900;color:#34d399}
+.per{font-size:14px;color:#9aa4b2}
+.pill{margin-left:6px;font-size:12px;color:#a7f3d0;border:1px solid rgba(52,211,153,.35);padding:2px 6px;border-radius:999px}
+
+/* Clean list */
+.list{list-style:none;margin:0;padding:0}
+.li{display:flex;align-items:flex-start;gap:10px;margin:8px 0}
+.i{width:16px;height:16px;border-radius:50%;margin-top:3px;flex:0 0 16px;border:1px solid var(--stroke)}
+.i.ok{border-color:rgba(52,211,153,.5);background:radial-gradient(circle at 50% 50%, rgba(52,211,153,.55), rgba(52,211,153,.15))}
+.i.muted{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
+.text-muted{color:var(--muted)}
+.highlight{color:#cfe1f1}
+
 /* Footer */
-footer{margin-top:44px; display:flex; justify-content:space-between; align-items:center; gap:18px; padding-top:16px; border-top:1px solid var(--stroke); color:var(--muted)}
-.links{display:flex; gap:12px; flex-wrap:wrap}
-.links a{border:1px solid var(--stroke); padding:8px 12px; border-radius:12px; display:inline-flex; gap:8px; align-items:center; background:rgba(255,255,255,.02)}
+footer{margin-top:44px;display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:16px;border-top:1px solid var(--stroke);color:var(--muted)}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links a{border:1px solid var(--stroke);padding:8px 12px;border-radius:12px;display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.02)}
 
 /* Responsive */
-@media (max-width: 1000px){
+@media (max-width:1000px){
   .hero{grid-template-columns:1fr}
-  .features{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .kb{grid-template-columns:1fr}
+  .features,.gallery,.kb{grid-template-columns:1fr}
 }
-
-/* --- Mobile polish for Pricing & layout --- */
-@media (max-width: 768px){
+@media (max-width:768px){
   .card{padding:18px}
   .h1{font-size:28px}
   .lead{font-size:15px}
-  .features{grid-template-columns:1fr; gap:10px}
-  .pricing{grid-template-columns:1fr; gap:16px}
-  .tier{padding:16px; border-radius:14px; overflow:hidden}
-  .tier:nth-child(2){
-    background:rgba(52,211,153,.10);
-    border-color:rgba(52,211,153,.35);
-    box-shadow:0 8px 28px rgba(0,0,0,.35), 0 0 24px rgba(52,211,153,.25);
-  }
-  .tier ul{margin:0 0 12px; line-height:1.5; font-size:15px}
-  .tier .btn, .btn.big{width:100%; justify-content:center}
+  .pricing{grid-template-columns:1fr;gap:16px}
+  .tier{padding:16px}
+  .new-price{font-size:28px}
+  .btn.big{width:100%;justify-content:center}
   .acc-btn{padding:14px 16px}
   .acc-panel.open{padding:8px 16px 14px}
 }
 
-/* Small inline notice */
-.notice{
-  margin:6px 0 10px;
-  font-size:14px;
-  color:#a5b4c3;
-  background:rgba(255,255,255,.03);
-  border:1px dashed var(--stroke);
-  border-radius:12px;
-  padding:10px 12px;
-}
+/* Notice */
+.notice{margin:6px 0 10px;font-size:14px;color:#a5b4c3;background:rgba(255,255,255,.03);
+  border:1px dashed var(--stroke);border-radius:12px;padding:10px 12px}
 
-/* --- Pricing List (clean, pro) --- */
-.list{list-style:none; padding:0; margin:0}
-.li{display:flex; align-items:flex-start; gap:10px; margin:8px 0}
-.i{width:16px; height:16px; border-radius:50%; margin-top:3px; flex:0 0 16px; border:1px solid var(--stroke)}
-.i.ok{border-color:rgba(52,211,153,.5); background:radial-gradient(circle at 50% 50%, rgba(52,211,153,.55), rgba(52,211,153,.15))}
-.i.muted{background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.12)}
-.text-muted{color:var(--muted)}
-.highlight{color:#cfe1f1}
-</style>
-
-<style>
-/* ---- BACKGROUND WITH LOGO ---- */
+/* Background */
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-4;
+  content:"";position:fixed;inset:0;z-index:-4;
   background:
     url("assets/logo.png") center/320px no-repeat,
     radial-gradient(100vw 80vh at 15% -10%, rgba(52,211,153,.22), transparent 70%),
     radial-gradient(90vw 70vh at 85% 0%, rgba(124,58,237,.20), transparent 70%),
     radial-gradient(100vw 80vh at 50% 120%, rgba(34,197,94,.18), transparent 70%),
-    linear-gradient(180deg, #05080f 0%, #0a1322 50%, #07121f 100%);
-  filter:saturate(120%);
-  background-blend-mode: screen;
-  opacity:.25;
-  animation:floaty 38s ease-in-out infinite alternate;
-}
+    linear-gradient(180deg,#05080f 0%,#0a1322 50%,#07121f 100%);
+  filter:saturate(120%);background-blend-mode:screen;opacity:.25;animation:floaty 38s ease-in-out infinite alternate}
 @keyframes floaty{0%{transform:translate3d(0,-10px,0)}100%{transform:translate3d(0,10px,0)}}
 </style>
-
 </head>
-<body>
 
+<body>
 <header>
-  <div class="brand">
-    <div class="dot"></div>
-    <span>ScamCheck</span>
-  </div>
+  <div class="brand"><div class="dot"></div><span>ScamCheck</span></div>
   <nav class="nav">
     <a class="btn" href="#about">About</a>
     <a class="btn" href="#faq">FAQ</a>
@@ -189,9 +152,7 @@ body::before{
     <div class="card">
       <h1 class="h1">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
       <p class="lead">Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.</p>
-
       <div class="notice">⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.</div>
-
       <div class="features">
         <div class="feat"><div class="badge">✓</div><div><b>Wallet Check</b> — balance, transactions, age, risk score.</div></div>
         <div class="feat"><div class="badge">✓</div><div><b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.</div></div>
@@ -200,7 +161,6 @@ body::before{
         <div class="feat"><div class="badge">✓</div><div><b>Anti-Scam Knowledge</b> — rules and checklists.</div></div>
         <div class="feat"><div class="badge">✓</div><div><b>Premium</b> — unlimited checks, priority API, full reports.</div></div>
       </div>
-
       <div class="nav" style="margin-top:12px">
         <a class="btn brand" href="https://t.me/ScamChecksupport" target="_blank" rel="noopener">Telegram Support</a>
         <a class="btn" href="mailto:hort6536@gmail.com">support@scamcheck.app</a>
@@ -209,10 +169,10 @@ body::before{
 
     <div class="card">
       <div class="gallery">
-        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1"></a>
-        <a class="shot" href="screenshots/shot2.png" target="_blank"><img src="screenshots/shot2.png" alt="Screenshot 2"></a>
-        <a class="shot" href="screenshots/shot3.png" target="_blank"><img src="screenshots/shot3.png" alt="Screenshot 3"></a>
-        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1"></a>
+        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1" /></a>
+        <a class="shot" href="screenshots/shot2.png" target="_blank"><img src="screenshots/shot2.png" alt="Screenshot 2" /></a>
+        <a class="shot" href="screenshots/shot3.png" target="_blank"><img src="screenshots/shot3.png" alt="Screenshot 3" /></a>
+        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1" /></a>
       </div>
     </div>
   </section>
@@ -251,13 +211,11 @@ body::before{
   <!-- PRICING -->
   <section id="pricing" class="card" style="margin-top:18px">
     <h2 style="margin:0 0 10px">Pricing</h2>
-    <p class="muted" style="margin:0 0 16px">
-      Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.
-    </p>
+    <p class="muted" style="margin:0 0 16px">Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.</p>
 
-    <div class="pricing" style="display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch">
+    <div class="pricing">
       <!-- Free -->
-      <div class="tier" style="border:1px solid var(--stroke);border-radius:16px;padding:18px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:space-between">
+      <div class="tier">
         <div>
           <div style="font-weight:800;margin-bottom:6px">Free</div>
           <div style="font-size:28px;font-weight:900;margin:2px 0 12px">$0</div>
@@ -273,20 +231,17 @@ body::before{
       </div>
 
       <!-- Premium -->
-      <div class="tier" style="border:1px solid rgba(52,211,153,.35);border-radius:16px;padding:18px;background:rgba(52,211,153,.08);box-shadow:var(--glow);display:flex;flex-direction:column;justify-content:space-between">
+      <div class="tier tier--pro">
         <div>
           <div style="font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px">
-            Premium <span style="font-size:12px;color:#a7f3d0;border:1px solid rgba(52,211,153,.35);padding:2px 6px;border-radius:999px">Best value</span>
+            Premium <span class="pill">Best value</span>
           </div>
-
-          <!-- Discounted price -->
-          <div style="display:flex;align-items:baseline;gap:10px;margin:2px 0 12px">
-            <span class="muted" style="text-decoration:line-through;font-size:18px">$39.99</span>
-            <span style="font-size:34px;font-weight:900;color:#34d399">$20</span>
-            <span class="muted" style="font-size:14px">/month</span>
-            <span style="margin-left:6px;font-size:12px;color:#a7f3d0;border:1px solid rgba(52,211,153,.35);padding:2px 6px;border-radius:999px">Limited time</span>
+          <div class="price-wrap">
+            <span class="old-price">$39.99</span>
+            <span class="new-price">$20</span>
+            <span class="per">/month</span>
+            <span class="pill">Limited time</span>
           </div>
-
           <ul class="list">
             <li class="li"><span class="i ok"></span><div><b>All checks</b>: Wallet, Token, Contract, Group</div></li>
             <li class="li"><span class="i ok"></span><div><b>Unlimited</b> checks</div></li>
@@ -294,13 +249,9 @@ body::before{
             <li class="li"><span class="i ok"></span><div><b>Full risk reports</b> with clear red-flags</div></li>
             <li class="li"><span class="i ok"></span><div>Early access to new chains</div></li>
           </ul>
-          <div class="text-muted" style="font-size:12px;margin:6px 0 10px">
-            Payments via NOWPayments (USDT-TRC20) • Cancel anytime
-          </div>
+          <div class="muted" style="font-size:12px;margin:6px 0 10px">Payments via NOWPayments (USDT-TRC20) • Cancel anytime</div>
         </div>
-
         <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">Upgrade — $20/month</a>
-        <!-- Removed the three pill badges under the button -->
       </div>
     </div>
 
@@ -308,14 +259,15 @@ body::before{
     <div class="card" style="margin-top:16px;padding:14px;border-radius:14px;background:rgba(255,255,255,.02);border:1px solid var(--stroke)">
       <div style="display:flex;gap:14px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center">
         <div class="highlight">One bad token can cost <b>$500+</b>.</div>
-        <div class="text-muted">Premium is <b>$20</b> — about <b>$0.66/day</b> for peace of mind.</div>
+        <div class="muted">Premium is <b>$20</b> — about <b>$0.66/day</b> for peace of mind.</div>
         <a class="btn brand" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">Get Premium</a>
       </div>
     </div>
 
-    <div style="text-align:center; margin-top:22px; font-size:16px; color:#9ca3af;">
-      There are scammers everywhere.<br>
-      <strong style="color:#34d399;">Protect your funds from suspicious addresses with ScamCheck.</strong>
+    <!-- Slogan -->
+    <div style="text-align:center;margin-top:22px;font-size:16px;color:#9ca3af">
+      There are scammers everywhere.<br />
+      <strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>
     </div>
   </section>
 
@@ -330,49 +282,42 @@ body::before{
 </main>
 
 <script>
-const FAQ = [
-  {q:"What exactly does ScamCheck do?", a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
-  {q:"Which chains are supported?", a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
-  {q:"How does Wallet Check work?", a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
-  {q:"What does Honeypot mean?", a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
-  {q:"Free vs Premium?", a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
-  {q:"How do I pay?", a:"Through NOWPayments in crypto (USDT-TRC20.)"},
-  {q:"Is mobile supported?", a:"Yes. The interface is optimized for phones and tablets."},
-  {q:"Can I trust the results?", a:"We aggregate multiple public sources (e.g., explorers and analytics APIs). We recommend double-checking critical cases on official explorers as a best practice."},
-  {q:"Is ScamCheck for traders only?", a:"No — it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
-  {q:"Do you store my wallet addresses?", a:"Only for processing your checks (if at all). We don’t sell personal data. For sensitive use, clear your local cache and use private mode."},
-  {q:"Can I request a new chain or feature?", a:"Yes. Contact support — we collect requests and prioritize by demand."}
+const FAQ=[
+  {q:"What exactly does ScamCheck do?",a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
+  {q:"Which chains are supported?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
+  {q:"How does Wallet Check work?",a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
+  {q:"What does Honeypot mean?",a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
+  {q:"Free vs Premium?",a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
+  {q:"How do I pay?",a:"Through NOWPayments in crypto (USDT-TRC20.)"},
+  {q:"Is mobile supported?",a:"Yes. The interface is optimized for phones and tablets."},
+  {q:"Can I trust the results?",a:"We aggregate multiple public sources (e.g., explorers and analytics APIs). We recommend double-checking critical cases on official explorers as a best practice."},
+  {q:"Is ScamCheck for traders only?",a:"No — it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
+  {q:"Do you store my wallet addresses?",a:"Only for processing your checks (if at all). We don’t sell personal data. For sensitive use, clear your local cache and use private mode."},
+  {q:"Can I request a new chain or feature?",a:"Yes. Contact support — we collect requests and prioritize by demand."}
 ];
 
-const acc = document.getElementById("accordion");
+const acc=document.getElementById("accordion");
 FAQ.forEach(({q,a},i)=>{
-  const el = document.createElement("div");
-  el.className = "acc-item";
-  el.innerHTML = `
+  const el=document.createElement("div");
+  el.className="acc-item";
+  el.innerHTML=`
     <button class="acc-btn" aria-expanded="false">
       <span>${i+1}. ${q}</span>
       <span class="muted">▼</span>
     </button>
-    <div class="acc-panel"><div style="padding:10px 0 12px; color:#cfe1f1">${a}</div></div>
-  `;
+    <div class="acc-panel"><div style="padding:10px 0 12px;color:#cfe1f1">${a}</div></div>`;
   acc.appendChild(el);
 });
 
-acc.addEventListener("click", e=>{
-  const btn = e.target.closest(".acc-btn");
-  if(!btn) return;
-  const panel = btn.nextElementSibling;
-  const open = panel.style.maxHeight && panel.style.maxHeight !== "0px";
-  document.querySelectorAll(".acc-panel").forEach(p=>{p.style.maxHeight=null; p.classList.remove("open")});
+acc.addEventListener("click",e=>{
+  const btn=e.target.closest(".acc-btn"); if(!btn) return;
+  const panel=btn.nextElementSibling;
+  const open=panel.style.maxHeight && panel.style.maxHeight!=="0px";
+  document.querySelectorAll(".acc-panel").forEach(p=>{p.style.maxHeight=null;p.classList.remove("open")});
   document.querySelectorAll(".acc-btn[aria-expanded='true']").forEach(b=>b.setAttribute("aria-expanded","false"));
-  if(!open){
-    panel.style.maxHeight = panel.scrollHeight + "px";
-    panel.classList.add("open");
-    btn.setAttribute("aria-expanded","true");
-  }
+  if(!open){panel.style.maxHeight=panel.scrollHeight+"px";panel.classList.add("open");btn.setAttribute("aria-expanded","true")}
 });
-
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent=new Date().getFullYear();
 </script>
 </body>
 </html>
