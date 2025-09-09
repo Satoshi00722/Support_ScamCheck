@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ScamCheck — Support & FAQ</title>
+<title data-i18n="title">ScamCheck — Support & FAQ</title>
 <meta name="description" content="Official support page for ScamCheck: product overview, features, screenshots, contacts, and a rich FAQ." />
 <link rel="icon" type="image/png" href="assets/logo.png" />
 
@@ -14,12 +14,10 @@
   --radius:20px; --shadow:0 10px 30px rgba(0,0,0,.35);
   --glow:0 0 18px rgba(52,211,153,.45), 0 0 52px rgba(52,211,153,.22);
 }
-
 /* Base */
 *{box-sizing:border-box}
 html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
 a{color:var(--brand);text-decoration:none}
-
 /* Header */
 header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-between;align-items:center;
   padding:14px 18px;border-bottom:1px solid var(--stroke);
@@ -28,7 +26,6 @@ header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-betwee
 .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.2px}
 .brand .dot{width:10px;height:10px;border-radius:50%;background:#60a5fa;box-shadow:0 0 18px rgba(96,165,250,.9)}
 .brand span{font-size:20px;color:var(--brand);text-shadow:0 0 20px rgba(52,211,153,.7)}
-
 /* Buttons */
 .btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;
   padding:12px 16px;border-radius:14px;border:1px solid var(--stroke);
@@ -37,36 +34,33 @@ header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-betwee
 .btn:hover{transform:translateY(-1px);box-shadow:var(--shadow)}
 .btn.brand{background:rgba(52,211,153,.12);border-color:rgba(52,211,153,.35);box-shadow:var(--glow)}
 .btn.big{padding:14px 18px}
-
+/* Lang switch */
+.lang{display:flex;gap:8px;margin-left:12px}
+.lang button{padding:8px 12px;border-radius:10px;border:1px solid var(--stroke);background:transparent;color:var(--text);cursor:pointer;font-weight:700}
+.lang button.active{border-color:rgba(52,211,153,.45);box-shadow:0 0 12px rgba(52,211,153,.35);color:#a7f3d0}
 /* Layout */
 .wrap{max-width:1140px;margin:0 auto;padding:28px 16px 70px}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
-
 /* Card */
 .card{position:relative;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
 .card:before{content:"";position:absolute;inset:-2px;border-radius:calc(var(--radius) + 2px);
   background:conic-gradient(from 0deg, rgba(52,211,153,.0), rgba(52,211,153,.5), rgba(124,58,237,.45), rgba(52,211,153,.0));
   filter:blur(8px);opacity:.33;z-index:-1;animation:holo 6s linear infinite}
 @keyframes holo{to{transform:rotate(360deg)}}
-
 .h1{font-size:36px;font-weight:900;margin:0 0 6px}
 .lead{color:#cfe1f1;margin:0 0 12px;line-height:1.6}
-
 /* Features */
 .features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
 .feat{display:flex;gap:10px;align-items:flex-start}
 .badge{width:22px;height:22px;border-radius:6px;background:rgba(52,211,153,.16);border:1px solid rgba(52,211,153,.4);display:grid;place-items:center;margin-top:2px}
-
 /* Gallery */
 .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--stroke);transform:translateZ(0)}
 .shot img{width:100%;display:block;transition:transform .35s ease, filter .35s ease}
 .shot:hover img{transform:scale(1.05);filter:contrast(108%)}
-
 /* About */
 .kb{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .kb .tag{font-size:12px;color:#a5b4c3;letter-spacing:.2px}
-
 /* Accordion */
 .faq .acc{border:1px solid var(--stroke);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.02)}
 .acc-item + .acc-item{border-top:1px solid var(--stroke)}
@@ -75,7 +69,6 @@ header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-betwee
 .acc-panel{max-height:0;overflow:hidden;transition:max-height .3s ease;padding:0 18px}
 .acc-panel.open{padding:8px 18px 16px}
 .muted{color:var(--muted)}
-
 /* Pricing */
 .pricing{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
 .tier{border:1px solid var(--stroke);border-radius:16px;padding:18px;background:rgba(255,255,255,.02);display:flex;flex-direction:column;justify-content:space-between}
@@ -85,7 +78,6 @@ header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-betwee
 .new-price{font-size:34px;font-weight:900;color:#34d399}
 .per{font-size:14px;color:#9aa4b2}
 .pill{margin-left:6px;font-size:12px;color:#a7f3d0;border:1px solid rgba(52,211,153,.35);padding:2px 6px;border-radius:999px}
-
 /* Clean list */
 .list{list-style:none;margin:0;padding:0}
 .li{display:flex;align-items:flex-start;gap:10px;margin:8px 0}
@@ -94,12 +86,10 @@ header{position:sticky;top:0;z-index:5;display:flex;justify-content:space-betwee
 .i.muted{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
 .text-muted{color:var(--muted)}
 .highlight{color:#cfe1f1}
-
 /* Footer */
 footer{margin-top:44px;display:flex;justify-content:space-between;align-items:center;gap:18px;padding-top:16px;border-top:1px solid var(--stroke);color:var(--muted)}
 .links{display:flex;gap:12px;flex-wrap:wrap}
 .links a{border:1px solid var(--stroke);padding:8px 12px;border-radius:12px;display:inline-flex;gap:8px;align-items:center;background:rgba(255,255,255,.02)}
-
 /* Responsive */
 @media (max-width:1000px){
   .hero{grid-template-columns:1fr}
@@ -116,11 +106,9 @@ footer{margin-top:44px;display:flex;justify-content:space-between;align-items:ce
   .acc-btn{padding:14px 16px}
   .acc-panel.open{padding:8px 16px 14px}
 }
-
 /* Notice */
 .notice{margin:6px 0 10px;font-size:14px;color:#a5b4c3;background:rgba(255,255,255,.03);
   border:1px dashed var(--stroke);border-radius:12px;padding:10px 12px}
-
 /* Background */
 body::before{
   content:"";position:fixed;inset:0;z-index:-4;
@@ -138,11 +126,15 @@ body::before{
 <body>
 <header>
   <div class="brand"><div class="dot"></div><span>ScamCheck</span></div>
-  <nav class="nav">
-    <a class="btn" href="#about">About</a>
-    <a class="btn" href="#faq">FAQ</a>
-    <a class="btn" href="#pricing">Pricing</a>
-    <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">Open Web App</a>
+  <nav class="nav" style="display:flex;align-items:center;gap:8px">
+    <a class="btn" href="#about" data-i18n="nav_about">About</a>
+    <a class="btn" href="#faq" data-i18n="nav_faq">FAQ</a>
+    <a class="btn" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+    <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener" data-i18n="nav_open_app">Open Web App</a>
+    <div class="lang">
+      <button type="button" data-setlang="en" class="active">EN</button>
+      <button type="button" data-setlang="ru">RU</button>
+    </div>
   </nav>
 </header>
 
@@ -150,20 +142,20 @@ body::before{
   <!-- HERO -->
   <section class="hero">
     <div class="card">
-      <h1 class="h1">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
-      <p class="lead">Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.</p>
-      <div class="notice">⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.</div>
+      <h1 class="h1" data-i18n-html="hero_title">Support for <span style="color:var(--brand)">ScamCheck</span></h1>
+      <p class="lead" data-i18n-html="hero_lead">Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.</p>
+      <div class="notice" data-i18n="hero_notice">⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.</div>
       <div class="features">
-        <div class="feat"><div class="badge">✓</div><div><b>Wallet Check</b> — balance, transactions, age, risk score.</div></div>
-        <div class="feat"><div class="badge">✓</div><div><b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.</div></div>
-        <div class="feat"><div class="badge">✓</div><div><b>Contract Check</b> — source code, owner privileges, dangerous functions.</div></div>
-        <div class="feat"><div class="badge">✓</div><div><b>Group Check</b> — Telegram/Discord red flags.</div></div>
-        <div class="feat"><div class="badge">✓</div><div><b>Anti-Scam Knowledge</b> — rules and checklists.</div></div>
-        <div class="feat"><div class="badge">✓</div><div><b>Premium</b> — unlimited checks, priority API, full reports.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_wallet"><b>Wallet Check</b> — balance, transactions, age, risk score.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_token"><b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_contract"><b>Contract Check</b> — source code, owner privileges, dangerous functions.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_group"><b>Group Check</b> — Telegram/Discord red flags.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_knowledge"><b>Anti-Scam Knowledge</b> — rules and checklists.</div></div>
+        <div class="feat"><div class="badge">✓</div><div data-i18n-html="f_premium"><b>Premium</b> — unlimited checks, priority API, full reports.</div></div>
       </div>
       <div class="nav" style="margin-top:12px">
-        <a class="btn brand" href="https://t.me/ScamChecksupport" target="_blank" rel="noopener">Telegram Support</a>
-        <a class="btn" href="mailto:hort6536@gmail.com">support@scamcheck.app</a>
+        <a class="btn brand" href="https://t.me/ScamChecksupport" target="_blank" rel="noopener" data-i18n="cta_tg">Telegram Support</a>
+        <a class="btn" href="mailto:hort6536@gmail.com" data-i18n="cta_mail">support@scamcheck.app</a>
       </div>
     </div>
 
@@ -180,88 +172,89 @@ body::before{
   <!-- ABOUT -->
   <section id="about" class="card kb">
     <div>
-      <span class="tag">OVERVIEW</span>
-      <h3 style="margin:.2rem 0 .4rem">What is ScamCheck?</h3>
-      <p>ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.</p>
+      <span class="tag" data-i18n="ovr_tag">OVERVIEW</span>
+      <h3 style="margin:.2rem 0 .4rem" data-i18n="ovr_h">What is ScamCheck?</h3>
+      <p data-i18n="ovr_p">ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.</p>
       <ul>
-        <li>Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.</li>
-        <li>Fast checks via our API; full reports and priority in Premium.</li>
-        <li>Responsive UI for mobile and desktop.</li>
+        <li data-i18n="ovr_l1">Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.</li>
+        <li data-i18n="ovr_l2">Fast checks via our API; full reports and priority in Premium.</li>
+        <li data-i18n="ovr_l3">Responsive UI for mobile and desktop.</li>
       </ul>
     </div>
     <div>
-      <span class="tag">HIGHLIGHTS</span>
+      <span class="tag" data-i18n="hl_tag">HIGHLIGHTS</span>
       <ul>
-        <li><b>One-tap checks</b> with clear risk labels.</li>
-        <li><b>Ownership & permissions</b> insights for contracts.</li>
-        <li><b>DEX pair sanity</b> (liquidity, lock status, price impact).</li>
-        <li><b>Community audit</b>: fake engagement cues & spam markers.</li>
-        <li><b>Knowledge base</b>: practical rules to avoid scams.</li>
+        <li data-i18n-html="hl_1"><b>One-tap checks</b> with clear risk labels.</li>
+        <li data-i18n-html="hl_2"><b>Ownership & permissions</b> insights for contracts.</li>
+        <li data-i18n-html="hl_3"><b>DEX pair sanity</b> (liquidity, lock status, price impact).</li>
+        <li data-i18n-html="hl_4"><b>Community audit</b>: fake engagement cues & spam markers.</li>
+        <li data-i18n-html="hl_5"><b>Knowledge base</b>: practical rules to avoid scams.</li>
       </ul>
-      <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank">Open Web App</a>
+      <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" data-i18n="nav_open_app">Open Web App</a>
     </div>
   </section>
 
   <!-- FAQ -->
   <section id="faq" class="card faq">
-    <h2 style="margin:0 0 6px">Frequently Asked Questions</h2>
+    <h2 style="margin:0 0 6px" data-i18n="faq_h">Frequently Asked Questions</h2>
     <div class="acc" id="accordion"></div>
   </section>
 
   <!-- PRICING -->
   <section id="pricing" class="card" style="margin-top:18px">
-    <h2 style="margin:0 0 10px">Pricing</h2>
-    <p class="muted" style="margin:0 0 16px">Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.</p>
+    <h2 style="margin:0 0 10px" data-i18n="pricing_h">Pricing</h2>
+    <p class="muted" style="margin:0 0 16px" data-i18n-html="pricing_p">Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.</p>
 
     <div class="pricing">
       <!-- Free -->
       <div class="tier">
         <div>
-          <div style="font-weight:800;margin-bottom:6px">Free</div>
-          <div style="font-size:28px;font-weight:900;margin:2px 0 12px">$0</div>
+          <div style="font-weight:800;margin-bottom:6px" data-i18n="free_h">Free</div>
+          <div style="font-size:28px;font-weight:900;margin:2px 0 12px" data-i18n="free_price">$0</div>
           <ul class="list">
-            <li class="li"><span class="i ok"></span><div><b>Wallet Check only</b> <span class="text-muted">(5 checks/day)</span></div></li>
-            <li class="li text-muted"><span class="i muted"></span><div>No Token checks</div></li>
-            <li class="li text-muted"><span class="i muted"></span><div>No Contract checks</div></li>
-            <li class="li text-muted"><span class="i muted"></span><div>No Group checks</div></li>
-            <li class="li text-muted"><span class="i muted"></span><div>Rate limited</div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="free_l1"><b>Wallet Check only</b> <span class="text-muted">(5 checks/day)</span></div></li>
+            <li class="li text-muted"><span class="i muted"></span><div data-i18n="free_l2">No Token checks</div></li>
+            <li class="li text-muted"><span class="i muted"></span><div data-i18n="free_l3">No Contract checks</div></li>
+            <li class="li text-muted"><span class="i muted"></span><div data-i18n="free_l4">No Group checks</div></li>
+            <li class="li text-muted"><span class="i muted"></span><div data-i18n="free_l5">Rate limited</div></li>
           </ul>
         </div>
-        <button class="btn" type="button" aria-disabled="true">Try Now</button>
+        <button class="btn" type="button" aria-disabled="true" data-i18n="free_btn">Try Now</button>
       </div>
 
       <!-- Premium -->
-     <div class="tier tier--pro">
-  <div>
-    <div style="font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px">
-      Premium <span class="pill">Best value</span>
+      <div class="tier tier--pro">
+        <div>
+          <div style="font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px">
+            <span data-i18n="pro_h">Premium</span> <span class="pill" data-i18n="pro_badge">Best value</span>
+          </div>
+          <div class="price-wrap">
+            <span class="old-price" data-i18n="pro_old">$39.99</span>
+            <span class="new-price" data-i18n="pro_new">$20</span>
+            <span class="per" data-i18n="pro_per">/month</span>
+            <span class="pill" data-i18n="pro_limited">Limited time</span>
+          </div>
+          <ul class="list">
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l1"><b>All checks</b>: Wallet, Token, Contract, Group</div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l2"><b>Unlimited</b> checks</div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l3"><b>Priority</b> API speed</div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l4"><b>Full risk reports</b> with clear red-flags</div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l5"><b>Real-time scam alerts</b></div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l6"><b>Advanced risk scoring</b></div></li>
+            <li class="li"><span class="i ok"></span><div data-i18n-html="pro_l7"><b>Exclusive risk database</b></div></li>
+          </ul>
+          <div class="muted" style="font-size:12px;margin:6px 0 10px" data-i18n="pro_note">
+            Payments via NOWPayments (USDT-TRC20) • Cancel anytime
+          </div>
+        </div>
+        <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener" data-i18n="pro_cta">
+          Upgrade — $20/month
+        </a>
+      </div>
     </div>
-    <div class="price-wrap">
-      <span class="old-price">$39.99</span>
-      <span class="new-price">$20</span>
-      <span class="per">/month</span>
-      <span class="pill">Limited time</span>
-    </div>
-    <ul class="list">
-      <li class="li"><span class="i ok"></span><div><b>All checks</b>: Wallet, Token, Contract, Group</div></li>
-      <li class="li"><span class="i ok"></span><div><b>Unlimited</b> checks</div></li>
-      <li class="li"><span class="i ok"></span><div><b>Priority</b> API speed</div></li>
-      <li class="li"><span class="i ok"></span><div><b>Full risk reports</b> with clear red-flags</div></li>
-      <li class="li"><span class="i ok"></span><div><b>Real-time scam alerts</b></div></li>
-      <li class="li"><span class="i ok"></span><div><b>Advanced risk scoring</b></div></li>
-      <li class="li"><span class="i ok"></span><div><b>Exclusive risk database</b></div></li>
-    </ul>
-    <div class="muted" style="font-size:12px;margin:6px 0 10px">
-      Payments via NOWPayments (USDT-TRC20) • Cancel anytime
-    </div>
-  </div>
-  <a class="btn brand big" href="https://scamcheck-2o1h.onrender.com" target="_blank" rel="noopener">
-    Upgrade — $20/month
-  </a>
-</div>
 
     <!-- Slogan -->
-    <div style="text-align:center;margin-top:22px;font-size:16px;color:#9ca3af">
+    <div style="text-align:center;margin-top:22px;font-size:16px;color:#9ca3af" data-i18n-html="slogan">
       There are scammers everywhere.<br />
       <strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>
     </div>
@@ -269,7 +262,7 @@ body::before{
 
   <!-- FOOTER -->
   <footer>
-    <div>© <span id="year"></span> ScamCheck. All rights reserved.</div>
+    <div>&copy; <span id="year"></span> ScamCheck. <span data-i18n="foot_rights">All rights reserved.</span></div>
     <div class="links">
       <a href="https://t.me/ScamChecksupport" target="_blank" rel="noopener">Telegram</a>
       <a href="mailto:hort6536@gmail.com">E-mail</a>
@@ -278,34 +271,143 @@ body::before{
 </main>
 
 <script>
-const FAQ=[
-  {q:"What exactly does ScamCheck do?",a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
-  {q:"Which chains are supported?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
-  {q:"How does Wallet Check work?",a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
-  {q:"What does Honeypot mean?",a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
-  {q:"Free vs Premium?",a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
-  {q:"How do I pay?",a:"Through NOWPayments in crypto (USDT-TRC20.)"},
-  {q:"Is mobile supported?",a:"Yes. The interface is optimized for phones and tablets."},
-  {q:"Can I trust the results?",a:"We aggregate multiple public sources (e.g., explorers and analytics APIs). We recommend double-checking critical cases on official explorers as a best practice."},
-  {q:"Is ScamCheck for traders only?",a:"No — it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
-  {q:"Do you store my wallet addresses?",a:"Only for processing your checks (if at all). We don’t sell personal data. For sensitive use, clear your local cache and use private mode."},
-  {q:"Can I request a new chain or feature?",a:"Yes. Contact support — we collect requests and prioritize by demand."}
-];
+/* ---------- i18n dictionaries ---------- */
+const I18N = {
+  en: {
+    title:"ScamCheck — Support & FAQ",
+    nav_about:"About", nav_faq:"FAQ", nav_pricing:"Pricing", nav_open_app:"Open Web App",
+    hero_title:'Support for <span style="color:var(--brand)">ScamCheck</span>',
+    hero_lead:"Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.",
+    hero_notice:"⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.",
+    f_wallet:"<b>Wallet Check</b> — balance, transactions, age, risk score.",
+    f_token:"<b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.",
+    f_contract:"<b>Contract Check</b> — source code, owner privileges, dangerous functions.",
+    f_group:"<b>Group Check</b> — Telegram/Discord red flags.",
+    f_knowledge:"<b>Anti-Scam Knowledge</b> — rules and checklists.",
+    f_premium:"<b>Premium</b> — unlimited checks, priority API, full reports.",
+    ovr_tag:"OVERVIEW", ovr_h:"What is ScamCheck?",
+    ovr_p:"ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.",
+    ovr_l1:"Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.",
+    ovr_l2:"Fast checks via our API; full reports and priority in Premium.",
+    ovr_l3:"Responsive UI for mobile and desktop.",
+    hl_tag:"HIGHLIGHTS",
+    hl_1:"<b>One-tap checks</b> with clear risk labels.",
+    hl_2:"<b>Ownership & permissions</b> insights for contracts.",
+    hl_3:"<b>DEX pair sanity</b> (liquidity, lock status, price impact).",
+    hl_4:"<b>Community audit</b>: fake engagement cues & spam markers.",
+    hl_5:"<b>Knowledge base</b>: practical rules to avoid scams.",
+    faq_h:"Frequently Asked Questions",
+    pricing_h:"Pricing",
+    pricing_p:"Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.",
+    free_h:"Free", free_price:"$0",
+    free_l1:"<b>Wallet Check only</b> <span class=\"text-muted\">(5 checks/day)</span>",
+    free_l2:"No Token checks", free_l3:"No Contract checks", free_l4:"No Group checks", free_l5:"Rate limited",
+    free_btn:"Try Now",
+    pro_h:"Premium", pro_badge:"Best value", pro_old:"$39.99", pro_new:"$20", pro_per:"/month", pro_limited:"Limited time",
+    pro_l1:"<b>All checks</b>: Wallet, Token, Contract, Group",
+    pro_l2:"<b>Unlimited</b> checks", pro_l3:"<b>Priority</b> API speed",
+    pro_l4:"<b>Full risk reports</b> with clear red-flags", pro_l5:"<b>Real-time scam alerts</b>",
+    pro_l6:"<b>Advanced risk scoring</b>", pro_l7:"<b>Exclusive risk database</b>",
+    pro_note:"Payments via NOWPayments (USDT-TRC20) • Cancel anytime",
+    pro_cta:"Upgrade — $20/month",
+    slogan:'There are scammers everywhere.<br /><strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>',
+    foot_rights:"All rights reserved.",
+    cta_tg:"Telegram Support", cta_mail:"support@scamcheck.app"
+  },
+  ru: {
+    title:"ScamCheck — Поддержка и FAQ",
+    nav_about:"О сервисе", nav_faq:"Вопросы", nav_pricing:"Тарифы", nav_open_app:"Открыть Web-приложение",
+    hero_title:'Поддержка <span style="color:var(--brand)">ScamCheck</span>',
+    hero_lead:"Проверяйте кошельки, токены, смарт-контракты и ссылки на сообщества до действий. ScamCheck объединяет источники и заранее показывает <b>риски скама</b>.",
+    hero_notice:"⚠️ Система автоматически определяет факторы риска. Даже личные кошельки могут получить предупреждения, если взаимодействуют с подозрительными адресами или токенами.",
+    f_wallet:"<b>Проверка кошелька</b> — баланс, транзакции, возраст, оценка риска.",
+    f_token:"<b>Проверка токена</b> — ликвидность, FDV, пары на DEX, honeypot-скан.",
+    f_contract:"<b>Проверка контракта</b> — исходники, права владельца, опасные функции.",
+    f_group:"<b>Проверка группы</b> — красные флаги в Telegram/Discord.",
+    f_knowledge:"<b>База анти-скам</b> — правила и чек-листы.",
+    f_premium:"<b>Премиум</b> — безлимитные проверки, приоритет API, полные отчёты.",
+    ovr_tag:"ОБЗОР", ovr_h:"Что такое ScamCheck?",
+    ovr_p:"ScamCheck — набор инструментов против скама. Нормализует сигналы из эксплореров и публичных API и мгновенно показывает «красные флаги». Используйте перед входом в токен, пополнением кошелька или переходом в группу.",
+    ovr_l1:"Сети: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP и др.",
+    ovr_l2:"Быстрые проверки через наш API; полные отчёты и приоритет — в Премиум.",
+    ovr_l3:"Адаптивный интерфейс для телефона и ПК.",
+    hl_tag:"ОСОБЕННОСТИ",
+    hl_1:"<b>Одна кнопка</b> и понятные метки риска.",
+    hl_2:"<b>Владение и права</b> — инсайты по контрактам.",
+    hl_3:"<b>Здравость пар DEX</b> (ликвидность, лок, ценовое влияние).",
+    hl_4:"<b>Аудит комьюнити</b>: признаки накруток и спама.",
+    hl_5:"<b>База знаний</b>: практические правила против скама.",
+    faq_h:"Частые вопросы",
+    pricing_h:"Тарифы",
+    pricing_p:"Обновитесь до <b>Премиум</b>, чтобы получить безлимитные проверки, приоритет API и полные отчёты.",
+    free_h:"Бесплатно", free_price:"$0",
+    free_l1:"<b>Только проверка кошелька</b> <span class=\"text-muted\">(5 проверок/день)</span>",
+    free_l2:"Без проверки токенов", free_l3:"Без проверки контрактов", free_l4:"Без проверки групп", free_l5:"Ограничение по скорости",
+    free_btn:"Попробовать",
+    pro_h:"Премиум", pro_badge:"Лучшая цена", pro_old:"$39.99", pro_new:"$20", pro_per:"/месяц", pro_limited:"Ограниченное предложение",
+    pro_l1:"<b>Все проверки</b>: кошелёк, токен, контракт, группа",
+    pro_l2:"<b>Безлимитные</b> проверки", pro_l3:"<b>Приоритет</b> API",
+    pro_l4:"<b>Полные отчёты</b> с «красными флагами»", pro_l5:"<b>Оповещения о скаме</b> в реальном времени",
+    pro_l6:"<b>Продвинутая оценка риска</b>", pro_l7:"<b>Эксклюзивная база рисков</b>",
+    pro_note:"Оплата через NOWPayments (USDT-TRC20) • Отмена в любое время",
+    pro_cta:"Обновить — $20/месяц",
+    slogan:'Скамеры везде.<br /><strong style="color:#34d399">Защити средства от подозрительных адресов с ScamCheck.</strong>',
+    foot_rights:"Все права защищены.",
+    cta_tg:"Поддержка в Telegram", cta_mail:"support@scamcheck.app"
+  }
+};
 
-const acc=document.getElementById("accordion");
-FAQ.forEach(({q,a},i)=>{
-  const el=document.createElement("div");
-  el.className="acc-item";
-  el.innerHTML=`
-    <button class="acc-btn" aria-expanded="false">
-      <span>${i+1}. ${q}</span>
-      <span class="muted">▼</span>
-    </button>
-    <div class="acc-panel"><div style="padding:10px 0 12px;color:#cfe1f1">${a}</div></div>`;
-  acc.appendChild(el);
-});
+/* ---------- FAQ content (both languages) ---------- */
+const FAQ_I18N = {
+  en: [
+    {q:"What exactly does ScamCheck do?",a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
+    {q:"Which chains are supported?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
+    {q:"How does Wallet Check work?",a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
+    {q:"What does Honeypot mean?",a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
+    {q:"Free vs Premium?",a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
+    {q:"How do I pay?",a:"Through NOWPayments in crypto (USDT-TRC20)."},
+    {q:"Is mobile supported?",a:"Yes. The interface is optimized for phones and tablets."},
+    {q:"Can I trust the results?",a:"We aggregate multiple public sources (explorers & analytics APIs). Always double-check critical cases on official explorers."},
+    {q:"Is ScamCheck for traders only?",a:"No — it’s for traders, arbitrageurs and newcomers who want a quick scam-risk scan before acting."},
+    {q:"Do you store my wallet addresses?",a:"Only for processing checks (if at all). We don’t sell personal data. For sensitive use, clear local cache or use private mode."},
+    {q:"Can I request a new chain or feature?",a:"Yes. Contact support — we collect requests and prioritize by demand."}
+  ],
+  ru: [
+    {q:"Что именно делает ScamCheck?",a:"Анализирует кошельки, токены, контракты и ссылки на группы, подсвечивая сигналы риска (honeypot, подозрительное владение, низкая ликвидность, аномальная активность, спам-сообщества и др.)."},
+    {q:"Какие сети поддерживаются?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP и другие совместимые сети."},
+    {q:"Как работает проверка кошелька?",a:"Мы учитываем баланс, число транзакций, возраст адреса и риск-паттерны (например, свежие поступления с помеченных источников)."},
+    {q:"Что такое honeypot?",a:"Токен, который можно купить, но нельзя продать из-за ограничений или вредоносного кода. ScamCheck предупреждает при обнаружении таких признаков."},
+    {q:"Чем отличается Free от Premium?",a:"Free: ограниченные проверки. Premium: безлимит, приоритет API, полные подробные отчёты и доп. инсайты."},
+    {q:"Как оплатить?",a:"Через NOWPayments в криптовалюте (USDT-TRC20)."},
+    {q:"Работает ли на телефоне?",a:"Да. Интерфейс оптимизирован для смартфонов и планшетов."},
+    {q:"Можно ли доверять результатам?",a:"Мы агрегируем данные из публичных источников (эксплореры и аналитические API). Критичные случаи лучше перепроверять в официальных эксплорерах."},
+    {q:"ScamCheck только для трейдеров?",a:"Нет — сервис полезен трейдерам, арбитражникам и новичкам для быстрой оценки риска перед действиями."},
+    {q:"Вы храните адреса моих кошельков?",a:"Только на время обработки проверок (если вообще храним). Мы не продаём личные данные. Для приватности очищайте кэш и используйте приватный режим."},
+    {q:"Можно попросить новую сеть или функцию?",a:"Да. Напишите в поддержку — собираем запросы и ставим приоритет по спросу."}
+  ]
+};
 
-acc.addEventListener("click",e=>{
+/* ---------- helpers ---------- */
+const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+function renderFAQ(lang){
+  const list = FAQ_I18N[lang] || FAQ_I18N.en;
+  const acc = document.getElementById("accordion");
+  acc.innerHTML = "";
+  list.forEach(({q,a},i)=>{
+    const el=document.createElement("div");
+    el.className="acc-item";
+    el.innerHTML=`
+      <button class="acc-btn" aria-expanded="false">
+        <span>${i+1}. ${q}</span>
+        <span class="muted">▼</span>
+      </button>
+      <div class="acc-panel"><div style="padding:10px 0 12px;color:#cfe1f1">${a}</div></div>`;
+    acc.appendChild(el);
+  });
+}
+
+/* accordion toggle */
+document.addEventListener("click",e=>{
   const btn=e.target.closest(".acc-btn"); if(!btn) return;
   const panel=btn.nextElementSibling;
   const open=panel.style.maxHeight && panel.style.maxHeight!=="0px";
@@ -313,8 +415,40 @@ acc.addEventListener("click",e=>{
   document.querySelectorAll(".acc-btn[aria-expanded='true']").forEach(b=>b.setAttribute("aria-expanded","false"));
   if(!open){panel.style.maxHeight=panel.scrollHeight+"px";panel.classList.add("open");btn.setAttribute("aria-expanded","true")}
 });
+
+/* i18n apply */
+function applyLang(lang){
+  const d = I18N[lang] || I18N.en;
+
+  $$("[data-i18n]").forEach(el=>{
+    const key = el.getAttribute("data-i18n");
+    if (d[key] !== undefined) el.textContent = d[key];
+  });
+  $$("[data-i18n-html]").forEach(el=>{
+    const key = el.getAttribute("data-i18n-html");
+    if (d[key] !== undefined) el.innerHTML = d[key];
+  });
+
+  // render FAQ for the chosen language
+  renderFAQ(lang);
+
+  // toggle active state on buttons
+  $$("[data-setlang]").forEach(b=>b.classList.toggle("active", b.getAttribute("data-setlang")===lang));
+
+  document.title = d.title || document.title;
+  document.documentElement.lang = (lang==="ru" ? "ru" : "en");
+  localStorage.setItem("lang", lang);
+}
+
+/* events + init */
+$$("[data-setlang]").forEach(btn=>{
+  btn.addEventListener("click", ()=>applyLang(btn.getAttribute("data-setlang")));
+});
 document.getElementById("year").textContent=new Date().getFullYear();
+
+const saved = localStorage.getItem("lang");
+const browser = (navigator.language||"en").slice(0,2).toLowerCase();
+applyLang(saved || (browser==="ru" ? "ru" : "en"));
 </script>
 </body>
 </html>
-
