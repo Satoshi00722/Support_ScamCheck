@@ -471,10 +471,18 @@ $$("[data-setlang]").forEach(btn=>{
 });
 document.getElementById("year").textContent=new Date().getFullYear();
 
+/* ---------- DEFAULT LANGUAGE LOGIC ---------- */
+/* Порядок пріоритетів:
+   1) URL параметр ?lang=en|ru (по клику на ссылку)
+   2) Ранее сохранённый выбор в localStorage
+   3) По умолчанию EN (без авто-детекта по браузеру) */
+const params = new URLSearchParams(location.search);
+const urlLang = params.get("lang");
 const saved = localStorage.getItem("lang");
-const browser = (navigator.language||"en").slice(0,2).toLowerCase();
-applyLang(saved || (browser==="ru" ? "ru" : "en"));
+const initial = (urlLang === "en" || urlLang === "ru") ? urlLang : (saved || "en");
+applyLang(initial);
 </script>
 </body>
 </html>
+
 
