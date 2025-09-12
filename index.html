@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>ScamCheck — Crypto Scam Checker | Wallet, Token & Telegram Group Scan</title>
-<meta name="description" content="Free wallet checks (5/day). Detect token honeypots, low liquidity, and risky Telegram/Discord groups. Protect yourself with ScamCheck.">
+<meta name="description" content="ScamCheck gives you 5 free wallet scam checks per day. Upgrade to Premium for $20/month to unlock unlimited wallet, token, contract, and Telegram group scans with full risk reports.">
 <link rel="canonical" href="https://satoshi00722.github.io/Support_ScamCheck/">
 
 <link rel="icon" type="image/png" href="assets/logo.png" />
@@ -47,6 +48,13 @@ header .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-conte
 /* Layout */
 .wrap{max-width:1140px;margin:0 auto;padding:28px 16px 70px}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+
+/* Top SEO intro (H1/H2) */
+.page-title{margin:10px auto 2px;max-width:1140px;padding:0 16px;text-align:center;
+  font-size:30px;line-height:1.15;font-weight:900;letter-spacing:.2px}
+.page-sub{margin:4px auto 12px;max-width:1140px;padding:0 16px;text-align:center;
+  font-size:16px;color:#cfe1f1}
+.page-sub .dot{margin:0 8px;color:#9aa4b2}
 
 /* Card */
 .card{position:relative;background:var(--panel);border:1px solid var(--stroke);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -110,6 +118,7 @@ footer{margin-top:44px;display:flex;justify-content:space-between;align-items:ce
 @media (max-width:1000px){
   .hero{grid-template-columns:1fr}
   .features,.gallery,.kb{grid-template-columns:1fr}
+  .page-title{font-size:28px}
 }
 @media (max-width:768px){
   .card{padding:18px}
@@ -118,19 +127,23 @@ footer{margin-top:44px;display:flex;justify-content:space-between;align-items:ce
   .pricing{grid-template-columns:1fr;gap:16px}
   .tier{padding:16px}
   .new-price{font-size:28px}
-  /* компактнее шапку */
   header .btn{padding:10px 12px;font-size:14px}
   .lang button{padding:6px 10px;font-size:12px}
+  .page-sub{font-size:15px}
 }
 @media (max-width:420px){
   .h1{font-size:26px}
   .lead{font-size:14px}
   header .btn{padding:8px 10px;font-size:13px}
   .lang{gap:6px}
+  .page-title{font-size:24px}
+  .page-sub{font-size:14px}
 }
 @media (max-width:360px){
   .h1{font-size:24px}
   .lead{font-size:13px}
+  .page-title{font-size:22px}
+  .page-sub{font-size:13px}
 }
 
 /* Notice */
@@ -152,8 +165,10 @@ body::before{
 </head>
 
 <body>
-   <h1>ScamCheck — Crypto Scam Checker</h1>
-  <h2>Free Wallet, Token & Telegram Group Risk Analysis</h2>
+  <!-- TOP SEO intro with accurate messaging -->
+  <h1 class="page-title">ScamCheck — Free Crypto Wallet Scam Checker</h1>
+  <h2 class="page-sub">5 free wallet checks per day <span class="dot">•</span> Full access $20/month</h2>
+
 <header>
   <div class="brand"><div class="dot"></div><span>ScamCheck</span></div>
   <nav class="nav">
@@ -386,14 +401,14 @@ const I18N = {
   }
 };
 
-/* ---------- FAQ content (both languages) ---------- */
+/* ---------- FAQ content ---------- */
 const FAQ_I18N = {
   en: [
     {q:"What exactly does ScamCheck do?",a:"It analyzes wallets, tokens, contracts and group links to highlight risk signals (honeypot, suspicious ownership, low liquidity, abnormal activity, spam communities and more)."},
     {q:"Which chains are supported?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more EVM-compatible chains."},
     {q:"How does Wallet Check work?",a:"We read balance, transaction count, account age and risk patterns (e.g., many fresh inflows from flagged sources)."},
     {q:"What does Honeypot mean?",a:"A token that can be bought but cannot be sold due to restrictions or malicious code. ScamCheck warns when such patterns are detected."},
-    {q:"Free vs Premium?",a:"Free: limited checks. Premium: unlimited checks, priority API, full detailed reports and extra insights."},
+    {q:"Free vs Premium?",a:"Free: wallet check only (5 checks/day). Premium: unlimited wallet, token, contract and group checks with full reports."},
     {q:"How do I pay?",a:"Through NOWPayments in crypto (USDT-TRC20)."},
     {q:"Is mobile supported?",a:"Yes. The interface is optimized for phones and tablets."},
     {q:"Can I trust the results?",a:"We aggregate multiple public sources (explorers & analytics APIs)."},
@@ -406,13 +421,12 @@ const FAQ_I18N = {
     {q:"Какие сети поддерживаются?",a:"Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP и другие совместимые сети."},
     {q:"Как работает проверка кошелька?",a:"Мы учитываем баланс, число транзакций, возраст адреса и риск-паттерны (например, свежие поступления с помеченных источников)."},
     {q:"Что такое honeypot?",a:"Токен, который можно купить, но нельзя продать из-за ограничений или вредоносного кода. ScamCheck предупреждает при обнаружении таких признаков."},
-    {q:"Чем отличается Free от Premium?",a:"Free: ограниченные проверки. Premium: безлимит, приоритет API, полные подробные отчёты и доп. инсайты."},
+    {q:"Free vs Premium?",a:"Бесплатно: только проверка кошелька (5 проверок/день). Премиум: безлимитные проверки кошелька, токена, контракта и групп с полными отчётами."},
     {q:"Как оплатить?",a:"Через NOWPayments в криптовалюте (USDT-TRC20)."},
-    {q:"Работает ли на телефоне?",a:"Да. Интерфейс оптимизирован для смартфонов и планшетов."},
+    {q:"Работает ли на телефоне?",a:"Да. Интерфейс оптимизирован под смартфоны и планшеты."},
     {q:"Можно ли доверять результатам?",a:"Мы агрегируем данные из публичных источников (эксплореры и аналитические API)."},
     {q:"ScamCheck только для трейдеров?",a:"Нет — сервис полезен трейдерам, арбитражникам и новичкам для быстрой оценки риска перед действиями."},
-    {q:"Вы храните адреса моих кошельков?",a:"Адреса используются только для обработки проверок — мы их никогда не продаём. Для повышенной приватности очистите локальный кэш или используйте приватный режим."},
-    {q:"Можно попросить новую сеть или функцию?",a:"Да. Напишите в поддержку — собираем запросы и ставим приоритет по спросу."}
+    {q:"Можно попросить новую сеть или функцию?",a:"Да. Напишите в поддержку — собираем запросы и приоритезируем по спросу."}
   ]
 };
 
