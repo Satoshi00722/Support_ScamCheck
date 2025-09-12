@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Главная страница -->
   <url>
     <loc>https://satoshi00722.github.io/Support_ScamCheck/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- About -->
   <url>
     <loc>https://satoshi00722.github.io/Support_ScamCheck/#about</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- FAQ -->
   <url>
     <loc>https://satoshi00722.github.io/Support_ScamCheck/#faq</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Pricing -->
   <url>
     <loc>https://satoshi00722.github.io/Support_ScamCheck/#pricing</loc>
     <changefreq>weekly</changefreq>
