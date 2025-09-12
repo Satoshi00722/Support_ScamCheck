@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://satoshi00722.github.io/Support_ScamCheck/sitemap.xml
