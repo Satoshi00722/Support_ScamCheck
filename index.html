@@ -18,7 +18,18 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
+  // базовая настройка
   gtag('config', 'AW-17537443507');
+</script>
+
+<!-- Event snippet for Покупка conversion page -->
+<script>
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17537443507/fPKTCOmu25UbELPNwKpB',
+      'value': 20.0,      // укажи стоимость подписки
+      'currency': 'USD',  // или UAH, если нужно в гривне
+      'transaction_id': ''
+  });
 </script>
 <style>
 :root{
