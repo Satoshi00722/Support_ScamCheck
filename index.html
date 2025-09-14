@@ -17,8 +17,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
-  // базовая настройка
   gtag('config', 'AW-17537443507');
 </script>
 
@@ -26,8 +24,8 @@
 <script>
   gtag('event', 'conversion', {
       'send_to': 'AW-17537443507/fPKTCOmu25UbELPNwKpB',
-      'value': 20.0,      // укажи стоимость подписки
-      'currency': 'USD',  // или UAH, если нужно в гривне
+      'value': 20.0,
+      'currency': 'USD',
       'transaction_id': ''
   });
 </script>
@@ -226,10 +224,13 @@ body::before{
 
     <div class="card">
       <div class="gallery">
+        <!-- UPDATED: show 6 unique screenshots -->
         <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1" /></a>
         <a class="shot" href="screenshots/shot2.png" target="_blank"><img src="screenshots/shot2.png" alt="Screenshot 2" /></a>
         <a class="shot" href="screenshots/shot3.png" target="_blank"><img src="screenshots/shot3.png" alt="Screenshot 3" /></a>
-        <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1" /></a>
+        <a class="shot" href="screenshots/shot4.png" target="_blank"><img src="screenshots/shot4.png" alt="Screenshot 4" /></a>
+        <a class="shot" href="screenshots/shot5.png" target="_blank"><img src="screenshots/shot5.png" alt="Screenshot 5" /></a>
+        <a class="shot" href="screenshots/shot6.png" target="_blank"><img src="screenshots/shot6.png" alt="Screenshot 6" /></a>
       </div>
     </div>
   </section>
@@ -511,10 +512,6 @@ $$("[data-setlang]").forEach(btn=>{
 document.getElementById("year").textContent=new Date().getFullYear();
 
 /* ---------- DEFAULT LANGUAGE LOGIC ---------- */
-/* Порядок пріоритетів:
-   1) URL параметр ?lang=en|ru (по клику на ссылку)
-   2) Ранее сохранённый выбор в localStorage
-   3) По умолчанию EN (без авто-детекта по браузеру) */
 const params = new URLSearchParams(location.search);
 const urlLang = params.get("lang");
 const saved = localStorage.getItem("lang");
@@ -523,5 +520,6 @@ applyLang(initial);
 </script>
 </body>
 </html>
+
 
 
