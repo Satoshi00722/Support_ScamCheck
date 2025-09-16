@@ -11,6 +11,7 @@
 <link rel="shortcut icon" href="assets/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/logo.png">
 <link rel="icon" type="image/png" href="assets/logo.png">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17537443507"></script>
 <script>
@@ -18,17 +19,30 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'AW-17537443507');
+
+  /* Надёжная отправка конверсии по клику с callback */
+  function gtag_report_conversion(url) {
+    var called = false;
+    var callback = function () {
+      if (called) return;
+      called = true;
+      if (typeof url !== 'undefined') {
+        window.open(url, '_blank');
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17537443507/fPKTCOmu25UbELPNwKpB',
+      'event_category': 'engagement',
+      'event_label': 'Open Web App Click',
+      'value': 1,
+      'event_callback': callback
+    });
+    /* Фолбэк на случай, если callback не вызовется */
+    setTimeout(callback, 500);
+    return false;
+  }
 </script>
 
-<!-- Event snippet for Покупка conversion page -->
-<script>
-  gtag('event', 'conversion', {
-      'send_to': 'AW-17537443507/fPKTCOmu25UbELPNwKpB',
-      'value': 20.0,
-      'currency': 'USD',
-      'transaction_id': ''
-  });
-</script>
 <style>
 :root{
   --bg:#070b13; --text:#e7eef6; --muted:#9aa4b2; --brand:#34d399;
@@ -125,7 +139,7 @@ header .nav{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-conte
 .i{width:16px;height:16px;border-radius:50%;margin-top:3px;flex:0 0 16px;border:1px solid var(--stroke)}
 .i.ok{border-color:rgba(52,211,153,.5);background:radial-gradient(circle at 50% 50%, rgba(52,211,153,.55), rgba(52,211,153,.15))}
 .i.muted{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)}
-.text-muted{color:var(--muted)}
+.text-muted{color:#9aa4b2}
 .highlight{color:#cfe1f1}
 
 /* Footer */
@@ -224,7 +238,6 @@ body::before{
 
     <div class="card">
       <div class="gallery">
-        <!-- UPDATED: show 6 unique screenshots -->
         <a class="shot" href="screenshots/shot1.png" target="_blank"><img src="screenshots/shot1.png" alt="Screenshot 1" /></a>
         <a class="shot" href="screenshots/shot2.png" target="_blank"><img src="screenshots/shot2.png" alt="Screenshot 2" /></a>
         <a class="shot" href="screenshots/shot3.png" target="_blank"><img src="screenshots/shot3.png" alt="Screenshot 3" /></a>
@@ -256,17 +269,14 @@ body::before{
         <li data-i18n-html="hl_4"><b>Community audit</b>: fake engagement cues & spam markers.</li>
         <li data-i18n-html="hl_5"><b>Knowledge base</b>: practical rules to avoid scams.</li>
       </ul>
+
+      <!-- КНОПКА с корректной отправкой конверсии -->
       <a class="btn brand big"
-   href="https://scamcheck-2o1h.onrender.com/?lang=en"
-   target="_blank"
-   onclick="gtag('event', 'conversion', {
-     'send_to': 'AW-17537443507/fPKTCOmu25UbELPNwKpB',
-     'event_category': 'engagement',
-     'event_label': 'Open Web App Click',
-     'value': 1
-   });">
-  Open Web App
-</a>
+         href="https://scamcheck-2o1h.onrender.com/?lang=en"
+         target="_blank"
+         onclick="return gtag_report_conversion('https://scamcheck-2o1h.onrender.com/?lang=en');">
+        Open Web App
+      </a>
     </div>
   </section>
 
@@ -282,7 +292,6 @@ body::before{
     <p class="muted" style="margin:0 0 16px" data-i18n-html="pricing_p">Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.</p>
 
     <div class="pricing">
-      <!-- Free -->
       <div class="tier">
         <div>
           <div style="font-weight:800;margin-bottom:6px" data-i18n="free_h">Free</div>
@@ -298,7 +307,6 @@ body::before{
         <button class="btn" type="button" aria-disabled="true" data-i18n="free_btn">Try Now</button>
       </div>
 
-      <!-- Premium -->
       <div class="tier tier--pro">
         <div>
           <div style="font-weight:800;margin-bottom:6px;display:flex;align-items:center;gap:8px">
@@ -329,14 +337,12 @@ body::before{
       </div>
     </div>
 
-    <!-- Slogan -->
     <div style="text-align:center;margin-top:22px;font-size:16px;color:#9ca3af" data-i18n-html="slogan">
       There are scammers everywhere.<br />
       <strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div>&copy; <span id="year"></span> ScamCheck. <span data-i18n="foot_rights">All rights reserved.</span></div>
     <div class="links">
@@ -504,10 +510,8 @@ function applyLang(lang){
     if (d[key] !== undefined) el.innerHTML = d[key];
   });
 
-  // render FAQ for chosen language
   renderFAQ(lang);
 
-  // toggle active state on buttons
   $$("[data-setlang]").forEach(b=>b.classList.toggle("active", b.getAttribute("data-setlang")===lang));
 
   document.title = d.title || document.title;
