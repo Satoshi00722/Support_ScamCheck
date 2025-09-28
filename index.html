@@ -194,6 +194,51 @@ body::before{
     linear-gradient(180deg,#05080f 0%,#0a1322 50%,#07121f 100%);
   filter:saturate(120%);background-blend-mode:screen;opacity:.25;animation:floaty 38s ease-in-out infinite alternate}
 @keyframes floaty{0%{transform:translate3d(0,-10px,0)}100%{transform:translate3d(0,10px,0)}}
+/* Карточка статистики */
+.stats-card {
+  max-width: 420px;   /* делаем уже */
+  margin: 30px auto;  /* центрируем */
+  text-align: center; /* выравниваем текст */
+}
+
+#stats .stats-grid {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#stats .stat {
+  flex: 1;
+  min-width: 120px;
+}
+
+#stats .value {
+  font-size: 32px;
+  font-weight: 900;
+  animation: countUp 0.6s ease;
+}
+
+#stats .label {
+  color: #9aa4b2;
+  font-size: 14px;
+}
+
+#totalUsers { color: #34d399; }
+#premiumUsers { color: #60a5fa; }
+
+@media(max-width:600px){
+  .stats-card { max-width: 90%; } /* на мобилках чуть шире */
+  #stats .stats-grid { flex-direction: column; gap: 14px; }
+  #stats .value { font-size: 26px; }
+}
+
+/* анимация чисел */
+@keyframes countUp {
+  from { opacity: 0.4; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 </style>
 </head>
 
@@ -208,6 +253,14 @@ body::before{
     <a class="btn" href="#about" data-i18n="nav_about">About</a>
     <a class="btn" href="#faq" data-i18n="nav_faq">FAQ</a>
     <a class="btn" href="#pricing" data-i18n="nav_pricing">Pricing</a>
+   <a class="btn" 
+   id="reviewButton"
+   href="https://example.com/reviews" 
+   target="_blank" 
+   rel="noopener"
+   data-i18n="nav_reviews">
+   Отзывы
+</a>
     <div class="lang">
       <button type="button" data-setlang="en" class="active">EN</button>
       <button type="button" data-setlang="ru">RU</button>
@@ -247,6 +300,21 @@ body::before{
       </div>
     </div>
   </section>
+<section class="card stats-card" id="stats">
+  <h2 id="statsTitle" data-i18n="stats.title">ScamCheck Users</h2>
+  <p class="muted" id="statsSubtitle" data-i18n="stats.subtitle">Live growth of our community</p>
+  <div class="stats-grid">
+    <div class="stat">
+      <div class="value" id="totalUsers">0</div>
+      <div class="label" id="totalLabel" data-i18n="stats.total">Total Users</div>
+    </div>
+    <div class="stat">
+      <div class="value" id="premiumUsers">0</div>
+      <div class="label" id="premiumLabel" data-i18n="stats.premium">Premium Users</div>
+    </div>
+  </div>
+</section>
+
 
   <!-- ABOUT -->
   <section id="about" class="card kb">
@@ -353,89 +421,135 @@ body::before{
 </main>
 
 <script>
-/* ---------- i18n dictionaries ---------- */
+/* ---------- i18n dictionaries ---------- */ 
 const I18N = {
   en: {
-    title:"ScamCheck — Support & FAQ",
-    nav_about:"About", nav_faq:"FAQ", nav_pricing:"Pricing", nav_open_app:"Open Web App",
-    hero_title:'Support for <span style="color:var(--brand)">ScamCheck</span>',
-    hero_lead:"Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.",
-    hero_notice:"⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.",
-    f_wallet:"<b>Wallet Check</b> — balance, transactions, age, risk score.",
-    f_token:"<b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.",
-    f_contract:"<b>Contract Check</b> — source code, owner privileges, dangerous functions.",
-    f_group:"<b>Group Check</b> — Telegram/Discord red flags.",
-    f_knowledge:"<b>Anti-Scam Knowledge</b> — rules and checklists.",
-    f_premium:"<b>Premium</b> — unlimited checks, priority API, full reports.",
-    ovr_tag:"OVERVIEW", ovr_h:"What is ScamCheck?",
-    ovr_p:"ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.",
-    ovr_l1:"Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.",
-    ovr_l2:"Fast checks via our API; full reports and priority in Premium.",
-    ovr_l3:"Responsive UI for mobile and desktop.",
-    hl_tag:"HIGHLIGHTS",
-    hl_1:"<b>One-tap checks</b> with clear risk labels.",
-    hl_2:"<b>Ownership & permissions</b> insights for contracts.",
-    hl_3:"<b>DEX pair sanity</b> (liquidity, lock status, price impact).",
-    hl_4:"<b>Community audit</b>: fake engagement cues & spam markers.",
-    hl_5:"<b>Knowledge base</b>: practical rules to avoid scams.",
-    faq_h:"Frequently Asked Questions",
-    pricing_h:"Pricing",
-    pricing_p:"Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.",
-    free_h:"Free", free_price:"$0",
-    free_l1:"<b>Wallet Check only</b> <span class=\"text-muted\">(5 checks/day)</span>",
-    free_l2:"No Token checks", free_l3:"No Contract checks", free_l4:"No Group checks", free_l5:"Rate limited",
-    free_btn:"Try Now",
-    pro_h:"Premium", pro_badge:"Best value", pro_old:"$39.99", pro_new:"$20", pro_per:"/month", pro_limited:"Limited time",
-    pro_l1:"<b>All checks</b>: Wallet, Token, Contract, Group",
-    pro_l2:"<b>Unlimited</b> checks", pro_l3:"<b>Priority</b> API speed",
-    pro_l4:"<b>Full risk reports</b> with clear red-flags", pro_l5:"<b>Real-time scam alerts</b>",
-    pro_l6:"<b>Advanced risk scoring</b>", pro_l7:"<b>Exclusive risk database</b>",
-    pro_note:"Payments via NOWPayments (USDT-TRC20) • Cancel anytime",
-    pro_cta:"Upgrade — $20/month",
-    slogan:'There are scammers everywhere.<br /><strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>',
-    foot_rights:"All rights reserved.",
-    cta_tg:"Telegram Support", cta_mail:"support@scamcheck.app"
+    title: "ScamCheck — Support & FAQ",
+    nav_reviews: "Reviews",
+    nav_about: "About",
+    nav_faq: "FAQ",
+    nav_pricing: "Pricing",
+    nav_open_app: "Open Web App",
+    hero_title: 'Support for <span style="color:var(--brand)">ScamCheck</span>',
+    hero_lead: "Evaluate wallets, tokens, smart contracts and community links before you act. ScamCheck aggregates multiple sources to surface <b>scam risks</b> early.",
+    hero_notice: "⚠️ Our system detects risk factors automatically. Even personal wallets can trigger warnings if they interact with suspicious tokens or addresses.",
+    f_wallet: "<b>Wallet Check</b> — balance, transactions, age, risk score.",
+    f_token: "<b>Token Check</b> — liquidity, FDV, DEX pairs, honeypot scan.",
+    f_contract: "<b>Contract Check</b> — source code, owner privileges, dangerous functions.",
+    f_group: "<b>Group Check</b> — Telegram/Discord red flags.",
+    f_knowledge: "<b>Anti-Scam Knowledge</b> — rules and checklists.",
+    f_premium: "<b>Premium</b> — unlimited checks, priority API, full reports.",
+    ovr_tag: "OVERVIEW",
+    ovr_h: "What is ScamCheck?",
+    ovr_p: "ScamCheck is an anti-scam toolkit for crypto users. It normalizes signals from explorers and public APIs and generates instant red-flag detection. Use it before joining a token, funding a wallet, or following a group invite.",
+    ovr_l1: "Chains: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP and more.",
+    ovr_l2: "Fast checks via our API; full reports and priority in Premium.",
+    ovr_l3: "Responsive UI for mobile and desktop.",
+    hl_tag: "HIGHLIGHTS",
+    hl_1: "<b>One-tap checks</b> with clear risk labels.",
+    hl_2: "<b>Ownership & permissions</b> insights for contracts.",
+    hl_3: "<b>DEX pair sanity</b> (liquidity, lock status, price impact).",
+    hl_4: "<b>Community audit</b>: fake engagement cues & spam markers.",
+    hl_5: "<b>Knowledge base</b>: practical rules to avoid scams.",
+    faq_h: "Frequently Asked Questions",
+    pricing_h: "Pricing",
+    pricing_p: "Upgrade to <b>Premium</b> for unlimited checks, priority API and full reports.",
+    free_h: "Free",
+    free_price: "$0",
+    free_l1: "<b>Wallet Check only</b> <span class=\"text-muted\">(5 checks/day)</span>",
+    free_l2: "No Token checks",
+    free_l3: "No Contract checks",
+    free_l4: "No Group checks",
+    free_l5: "Rate limited",
+    free_btn: "Try Now",
+    pro_h: "Premium",
+    pro_badge: "Best value",
+    pro_old: "$39.99",
+    pro_new: "$20",
+    pro_per: "/month",
+    pro_limited: "Limited time",
+    pro_l1: "<b>All checks</b>: Wallet, Token, Contract, Group",
+    pro_l2: "<b>Unlimited</b> checks",
+    pro_l3: "<b>Priority</b> API speed",
+    pro_l4: "<b>Full risk reports</b> with clear red-flags",
+    pro_l5: "<b>Real-time scam alerts</b>",
+    pro_l6: "<b>Advanced risk scoring</b>",
+    pro_l7: "<b>Exclusive risk database</b>",
+    pro_note: "Payments via NOWPayments (USDT-TRC20) • Cancel anytime",
+    pro_cta: "Upgrade — $20/month",
+    slogan: 'There are scammers everywhere.<br /><strong style="color:#34d399">Protect your funds from suspicious addresses with ScamCheck.</strong>',
+    foot_rights: "All rights reserved.",
+    cta_tg: "Telegram Support",
+    cta_mail: "support@scamcheck.app",
+    // New translations
+    "stats.title": "ScamCheck Users",
+    "stats.subtitle": "Live growth of our community",
+    "stats.total": "Total Users",
+    "stats.premium": "Premium Users"
   },
   ru: {
-    title:"ScamCheck — Поддержка и FAQ",
-    nav_about:"О сервисе", nav_faq:"Вопросы", nav_pricing:"Тарифы", nav_open_app:"Открыть Web-приложение",
-    hero_title:'Поддержка <span style="color:var(--brand)">ScamCheck</span>',
-    hero_lead:"Проверяйте кошельки, токены, смарт-контракты и ссылки на сообщества до действий. ScamCheck объединяет источники и заранее показывает <b>риски скама</b>.",
-    hero_notice:"⚠️ Система автоматически определяет факторы риска. Даже личные кошельки могут получить предупреждения, если взаимодействуют с подозрительными адресами или токенами.",
-    f_wallet:"<b>Проверка кошелька</b> — баланс, транзакции, возраст, оценка риска.",
-    f_token:"<b>Проверка токена</b> — ликвидность, FDV, пары на DEX, honeypot-скан.",
-    f_contract:"<b>Проверка контракта</b> — исходники, права владельца, опасные функции.",
-    f_group:"<b>Проверка группы</b> — красные флаги в Telegram/Discord.",
-    f_knowledge:"<b>База анти-скам</b> — правила и чек-листы.",
-    f_premium:"<b>Премиум</b> — безлимитные проверки, приоритет API, полные отчёты.",
-    ovr_tag:"ОБЗОР", ovr_h:"Что такое ScamCheck?",
-    ovr_p:"ScamCheck — набор инструментов против скама. Нормализует сигналы из эксплореров и публичных API и мгновенно показывает «красные флаги». Используйте перед входом в токен, пополнением кошелька или переходом в группу.",
-    ovr_l1:"Сети: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP и др.",
-    ovr_l2:"Быстрые проверки через наш API; полные отчёты и приоритет — в Премиум.",
-    ovr_l3:"Адаптивный интерфейс для телефона и ПК.",
-    hl_tag:"ОСОБЕННОСТИ",
-    hl_1:"<b>Одна кнопка</b> и понятные метки риска.",
-    hl_2:"<b>Владение и права</b> — инсайты по контрактам.",
-    hl_3:"<b>Здравость пар DEX</b> (ликвидность, лок, ценовое влияние).",
-    hl_4:"<b>Аудит комьюнити</b>: признаки накруток и спама.",
-    hl_5:"<b>База знаний</b>: практические правила против скама.",
-    faq_h:"Частые вопросы",
-    pricing_h:"Тарифы",
-    pricing_p:"Обновитесь до <b>Премиум</b>, чтобы получить безлимитные проверки, приоритет API и полные отчёты.",
-    free_h:"Бесплатно", free_price:"$0",
-    free_l1:"<b>Только проверка кошелька</b> <span class=\"text-muted\">(5 проверок/день)</span>",
-    free_l2:"Без проверки токенов", free_l3:"Без проверки контрактов", free_l4:"Без проверки групп", free_l5:"Ограничение по скорости",
-    free_btn:"Попробовать",
-    pro_h:"Премиум", pro_badge:"Лучшая цена", pro_old:"$39.99", pro_new:"$20", pro_per:"/месяц", pro_limited:"Ограниченное предложение",
-    pro_l1:"<b>Все проверки</b>: кошелёк, токен, контракт, группа",
-    pro_l2:"<b>Безлимитные</b> проверки", pro_l3:"<b>Приоритет</b> API",
-    pro_l4:"<b>Полные отчёты</b> с «красными флагами»", pro_l5:"<b>Оповещения о скаме</b> в реальном времени",
-    pro_l6:"<b>Продвинутая оценка риска</b>", pro_l7:"<b>Эксклюзивная база рисков</b>",
-    pro_note:"Оплата через NOWPayments (USDT-TRC20) • Отмена в любое время",
-    pro_cta:"Обновить — $20/месяц",
-    slogan:'Скамеры везде.<br /><strong style="color:#34d399">Защити средства от подозрительных адресов с ScamCheck.</strong>',
-    foot_rights:"Все права защищены.",
-    cta_tg:"Поддержка в Telegram", cta_mail:"support@scamcheck.app"
+    title: "ScamCheck — Поддержка и FAQ",
+    nav_reviews: "Отзывы",
+    nav_about: "О сервисе",
+    nav_faq: "Вопросы",
+    nav_pricing: "Тарифы",
+    nav_open_app: "Открыть Web-приложение",
+    hero_title: 'Поддержка <span style="color:var(--brand)">ScamCheck</span>',
+    hero_lead: "Проверяйте кошельки, токены, смарт-контракты и ссылки на сообщества до действий. ScamCheck объединяет источники и заранее показывает <b>риски скама</b>.",
+    hero_notice: "⚠️ Система автоматически определяет факторы риска. Даже личные кошельки могут получить предупреждения, если взаимодействуют с подозрительными адресами или токенами.",
+    f_wallet: "<b>Проверка кошелька</b> — баланс, транзакции, возраст, оценка риска.",
+    f_token: "<b>Проверка токена</b> — ликвидность, FDV, пары на DEX, honeypot-скан.",
+    f_contract: "<b>Проверка контракта</b> — исходники, права владельца, опасные функции.",
+    f_group: "<b>Проверка группы</b> — красные флаги в Telegram/Discord.",
+    f_knowledge: "<b>База анти-скам</b> — правила и чек-листы.",
+    f_premium: "<b>Премиум</b> — безлимитные проверки, приоритет API, полные отчёты.",
+    ovr_tag: "ОБЗОР",
+    ovr_h: "Что такое ScamCheck?",
+    ovr_p: "ScamCheck — набор инструментов против скама. Нормализует сигналы из эксплореров и публичных API и мгновенно показывает «красные флаги». Используйте перед входом в токен, пополнением кошелька или переходом в группу.",
+    ovr_l1: "Сети: Ethereum, BSC, Polygon, Arbitrum, Optimism, Avalanche, TRON, Solana, XRP и др.",
+    ovr_l2: "Быстрые проверки через наш API; полные отчёты и приоритет — в Премиум.",
+    ovr_l3: "Адаптивный интерфейс для телефона и ПК.",
+    hl_tag: "ОСОБЕННОСТИ",
+    hl_1: "<b>Одна кнопка</b> и понятные метки риска.",
+    hl_2: "<b>Владение и права</b> — инсайты по контрактам.",
+    hl_3: "<b>Здравость пар DEX</b> (ликвидность, лок, ценовое влияние).",
+    hl_4: "<b>Аудит комьюнити</b>: признаки накруток и спама.",
+    hl_5: "<b>База знаний</b>: практические правила против скама.",
+    faq_h: "Частые вопросы",
+    pricing_h: "Тарифы",
+    pricing_p: "Обновитесь до <b>Премиум</b>, чтобы получить безлимитные проверки, приоритет API и полные отчёты.",
+    free_h: "Бесплатно",
+    free_price: "$0",
+    free_l1: "<b>Только проверка кошелька</b> <span class=\"text-muted\">(5 проверок/день)</span>",
+    free_l2: "Без проверки токенов",
+    free_l3: "Без проверки контрактов",
+    free_l4: "Без проверки групп",
+    free_l5: "Ограничение по скорости",
+    free_btn: "Попробовать",
+    pro_h: "Премиум",
+    pro_badge: "Лучшая цена",
+    pro_old: "$39.99",
+    pro_new: "$20",
+    pro_per: "/месяц",
+    pro_limited: "Ограниченное предложение",
+    pro_l1: "<b>Все проверки</b>: кошелёк, токен, контракт, группа",
+    pro_l2: "<b>Безлимитные</b> проверки",
+    pro_l3: "<b>Приоритет</b> API",
+    pro_l4: "<b>Полные отчёты</b> с «красными флагами»",
+    pro_l5: "<b>Оповещения о скаме</b> в реальном времени",
+    pro_l6: "<b>Продвинутая оценка риска</b>",
+    pro_l7: "<b>Эксклюзивная база рисков</b>",
+    pro_note: "Оплата через NOWPayments (USDT-TRC20) • Отмена в любое время",
+    pro_cta: "Обновить — $20/месяц",
+    slogan: 'Скамеры везде.<br /><strong style="color:#34d399">Защити средства от подозрительных адресов с ScamCheck.</strong>',
+    foot_rights: "Все права защищены.",
+    cta_tg: "Поддержка в Telegram",
+    cta_mail: "support@scamcheck.app",
+    // New translations
+    "stats.title": "Пользователи ScamCheck",
+    "stats.subtitle": "Рост нашего сообщества",
+    "stats.total": "Всего пользователей",
+    "stats.premium": "Премиум пользователей"
   }
 };
 
@@ -531,6 +645,26 @@ const urlLang = params.get("lang");
 const saved = localStorage.getItem("lang");
 const initial = (urlLang === "en" || urlLang === "ru") ? urlLang : (saved || "en");
 applyLang(initial);
+
+// ---------- СТАТИСТИКА ПОЛЬЗОВАТЕЛЕЙ ----------
+(function updateStats() {
+  const startDate = new Date('2025-09-28');
+  const normalStart = 5760;
+  const premiumStart = 1790;
+  const normalIncrement = 10;
+  const premiumIncrement = 5;
+
+  const today = new Date();
+  const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+
+  const normalUsers = normalStart + diffDays * normalIncrement;
+  const premiumUsers = premiumStart + diffDays * premiumIncrement;
+
+  const totalEl = document.getElementById("totalUsers");
+  const premiumEl = document.getElementById("premiumUsers");
+  if(totalEl) totalEl.textContent = normalUsers.toLocaleString();
+  if(premiumEl) premiumEl.textContent = premiumUsers.toLocaleString();
+})();
 </script>
 </body>
 </html>
